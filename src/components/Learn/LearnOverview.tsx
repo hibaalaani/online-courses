@@ -21,7 +21,7 @@ const LearnOverview: React.FC<LearnOverviewProps> = ({ onSelectModal, onNext }) 
               <p className="text-gray-500 mt-2">Start with the basics and build a strong foundation.</p>
               <div className="mt-4 space-x-2">
                 <button
-                  onClick={() => setBeginnerPopupOpen(true)}
+                  onClick={() => onSelectModal('beginner')}
                   className="px-6 py-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-all shadow-lg"
                 >
                   View Topics
@@ -77,9 +77,9 @@ const LearnOverview: React.FC<LearnOverviewProps> = ({ onSelectModal, onNext }) 
           </div>
     
           {/* Beginner Topics Popup */}
-          {isBeginnerPopupOpen && (
+          {/* {isBeginnerPopupOpen && (
             <BeginnerTopics onClose={() => setBeginnerPopupOpen(false)} />
-          )}
+          )} */}
         </div>
       );
 };

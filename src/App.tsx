@@ -15,6 +15,9 @@ import Navbar from './components/Shared/Navbar';
 import Footer from './components/Shared/Footer';
 import Binary from './assets/binary.jpg'
 import ContactPage from './components/ContactPage';
+import { TopicsProvider } from './context/TopicsContext';
+import Register from './components/Register';
+import Login from './components/Login';
 interface Selection {
   type?: string;
   level?: string;
@@ -62,7 +65,7 @@ function App() {
   };
 
   return (
-    <>
+    <TopicsProvider>
       
       {/* <div
       className="relative min-h-screen bg-cover bg-center"
@@ -209,12 +212,16 @@ function App() {
           path="/build/booking"
           element={<BookingForm selection={selection} />}
         />
-         <Route path="/contact" element={<ContactPage />} />
+         <Route path="/login" element={<Login />} />
+<Route path="/register" element={<Register />} />
+<Route path="/contact" element={<ContactPage />} />
+
+
       </Routes>
       <Footer/>
       {/* </div> */}
       </div>
-    </>
+    </TopicsProvider>
   );
 }
 
