@@ -7,6 +7,8 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
   const [error, setError] = useState<string | null>(null);
 const [usernameAvailable , setUsernameAvailable] = useState<boolean|null>(null)
 
@@ -65,8 +67,18 @@ try {
         email,
         password,
       });
-      alert('Registration successful! Please login.');
-      navigate('/login')
+      setError(null);
+      setSuccessMessage('Registration successful! Redirecting to login...');
+    
+      setUsername('');
+      setEmail('');
+      setPassword('');
+      setUsernameAvailable(null);
+      
+    // Redirect to the login page after a delay
+
+      setTimeout(() => navigate('/login'), 2000);
+     
     } catch (err) {
       setError('Failed to register. Please try again.');
     }
@@ -132,6 +144,7 @@ if (value){
         Register
       </button>
       {error && <p className="mt-4 text-red-500 text-center">{error}</p>}
+      {successMessage && <p className="mt-4 text-green-500 text-center">{successMessage}</p>}
     </div></main>
     </div>
   );
