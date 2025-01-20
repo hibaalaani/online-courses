@@ -18,6 +18,8 @@ import ContactPage from './components/ContactPage';
 import { TopicsProvider } from './context/TopicsContext';
 import Register from './components/Register';
 import Login from './components/Login';
+import { UserProvider } from './context/UserContext';
+import Dashboard from './components/Dashboard';
 interface Selection {
   type?: string;
   level?: string;
@@ -66,22 +68,8 @@ function App() {
 
   return (
     <TopicsProvider>
-      
-      {/* <div
-      className="relative min-h-screen bg-cover bg-center"
-      style={{
-        backgroundImage:`url(${Binary})`,
-      }}
-    >
-      {/* Transparent Overlay *
-      <div   className="absolute inset-0 z-10"
-     style={{
-      backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5))',
-    }}></div> */}
-
-      {/* Main Content */}
-      {/* <div className="relative z-10"> */}
-        {/* Navbar */}
+      <UserProvider>
+     
       <Navbar />
 
       {/* Modal */}
@@ -101,7 +89,7 @@ function App() {
 
       {/* Back and Reset Buttons */}
       <div className="fixed top-20 left-4 z-50">
-        { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&&(
+        { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&& window.location.pathname !== '/dashboard'&&(
           <button
             onClick={goBack}
             className="px-6 py-3 bg-indigo-500 text-white rounded-lg shadow-md hover:bg-indigo-600 transition-all flex items-center space-x-2"
@@ -121,7 +109,7 @@ function App() {
         )}
       </div>
       <div className="fixed top-20 right-4 z-50">
-        { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&&(
+        { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&& window.location.pathname !== '/dashboard'&&(
           <button
             onClick={resetSelection}
             className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition-all flex items-center space-x-2"
@@ -140,6 +128,7 @@ function App() {
           </button>
         )}
       </div>
+      
         {/* Main Content */}
       <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 ">
       {/* Routes */}
@@ -216,12 +205,13 @@ function App() {
          <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
 <Route path="/contact" element={<ContactPage />} />
-
+<Route path="/dashboard" element={<Dashboard />} />
 
       </Routes>
       <Footer/>
       {/* </div> */}
       </div>
+      </UserProvider>
     </TopicsProvider>
   );
 }

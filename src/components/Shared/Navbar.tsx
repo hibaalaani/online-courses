@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [username, setUsername] = useState<string | null>(null);
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    // Check if the user is logged in by retrieving their username from localStorage
+    const storedUsername = localStorage.getItem('username');
+    setUsername(storedUsername);
+  }, []);
+
+  const handleLogout = () => {
+    // Clear user data and navigate to the home page
+    localStorage.clear();
+    setUsername(null);
+    navigate('/');
+  };
   return (
     
     <nav className="bg-transparent text-white px-4 py-4 fixed top-0 w-full z-20">
@@ -30,6 +44,30 @@ const Navbar: React.FC = () => {
           <Link to="/contact" className="text-gray-700 hover:text-indigo-600 transition">
             Contact
           </Link>
+           {/* Conditional Rendering for Auth Links */}
+           {username ? (
+            <>
+              <span className="text-gray-700">
+                Hello, <span className="font-bold">{username}</span>
+              </span>
+              <button
+                onClick={handleLogout}
+                className="text-red-600 hover:text-red-800 transition"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="text-gray-700 hover:text-indigo-600 transition">
+                Login
+              </Link>
+              <Link to="/register" className="text-gray-700 hover:text-indigo-600 transition">
+                Register
+              </Link>
+            </>
+          )}
+        </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -58,7 +96,7 @@ const Navbar: React.FC = () => {
             </svg>
           </button>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -92,6 +130,37 @@ const Navbar: React.FC = () => {
             >
               Contact
             </Link>
+             {/* Conditional Rendering for Auth Links */}
+             {username ? (
+              <>
+                <span className="text-gray-700">
+                  Hello, <span className="font-bold">{username}</span>
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="text-red-600 hover:text-red-800 transition"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-gray-700 hover:text-indigo-600 transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="text-gray-700 hover:text-indigo-600 transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}
