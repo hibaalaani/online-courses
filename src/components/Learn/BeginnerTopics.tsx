@@ -1,10 +1,11 @@
 import React from "react";
 
-import useFetchTopics from "../Shared/Custom_fetch";
+// import useFetchTopics from "../Shared/Custom_fetch";
 import { useTopics } from "../../context/TopicsContext";
 interface BeginnerTopicsProps {
-  onClose: () => void; // Prop for closing the popup
+  onClose?: () => void; // Prop for closing the popup
 }
+
 
 const BeginnerTopics: React.FC<BeginnerTopicsProps> = () => {
 

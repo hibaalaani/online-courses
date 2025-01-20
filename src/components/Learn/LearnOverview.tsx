@@ -1,12 +1,11 @@
-import React,{useState} from 'react';
-import BeginnerTopics from './BeginnerTopics';
+import React from 'react';
 interface LearnOverviewProps {
   onSelectModal: (level: 'beginner' | 'intermediate' | 'advanced') => void;
   onNext: (level: 'beginner' | 'intermediate' | 'advanced') => void;
 }
 
 const LearnOverview: React.FC<LearnOverviewProps> = ({ onSelectModal, onNext }) => {
-    const [isBeginnerPopupOpen, setBeginnerPopupOpen] = useState(false);
+    // const [isBeginnerPopupOpen, setBeginnerPopupOpen] = useState(false);
 
     return (
         <div className="min-h-screen  px-8 lg:px-18 flex flex-col items-center justify-center">

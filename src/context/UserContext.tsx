@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import {createContext, useContext, useEffect, useState} from "react";
 
 interface User {
@@ -19,8 +19,8 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({
   children,
 }) => {
   const [user, setUser] = useState<User>({username: "", email: "" , joined :""});
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [loading] = useState<boolean>(false);
+  const [error] = useState<string | null>(null);
 
   useEffect(() => {
     const savedUsername = localStorage.getItem("username") || "";

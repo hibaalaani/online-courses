@@ -13,7 +13,7 @@ import IntermediateProjects from './components/Build/IntermediateProjects';
 import AdvancedProjects from './components/Build/AdvancedProjects';
 import Navbar from './components/Shared/Navbar';
 import Footer from './components/Shared/Footer';
-import Binary from './assets/binary.jpg'
+// import Binary from './assets/binary.jpg'
 import ContactPage from './components/ContactPage';
 import { TopicsProvider } from './context/TopicsContext';
 import Register from './components/Register';
@@ -35,7 +35,7 @@ function App() {
     setSelection({});
     navigate('/'); // Redirect to the landing page
   };
-
+  console.log(import.meta.env.VITE_API_URL_USER_BASE_URL);
   // Back button logic
   const goBack = () => {
     const currentPath = window.location.pathname;

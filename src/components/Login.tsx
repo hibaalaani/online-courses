@@ -7,7 +7,7 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  // const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const { setUser } = useUser(); // Access the setUser method from UserContext
   const togglePasswordVisibility = () => {
@@ -26,18 +26,16 @@ const Login: React.FC = () => {
       const {username:name , email , joined , access}  = response.data
       localStorage.setItem("token", access);
       localStorage.setItem("username", name);
-      // localStorage.setItem("email", response.data.email);
-      // localStorage.setItem("joined", response.data.joined);
+ 
       setUser({username:name , email:email , joined})
 
 
       setError(null);
 
-      setSuccessMessage("Registration successful! Redirecting to login...");
+      // setSuccessMessage("Registration successful! Redirecting to login...");
       setUsername("");
       setPassword("");
       setTimeout(() => {
-        // navigate("/dashboard");
         navigate("/dashboard", { state: { successMessage: "Login successful" } });
       }, 2000);
     } catch (error) {

@@ -25,7 +25,11 @@ const [topics , setTopics] = useState<Topic[]>([])
 const [loading,setLoading] = useState<boolean>(true)
 const [error , setError] = useState<string|null>(null)
 
+// const BASE_URL = import.meta.env.MODE === 'production'
+//     ? import.meta.env.VITE_API_URL_USER_BASE_URL // Use deployed URL in production
+//     : 'http://127.0.0.1:8000/user'; // Use local URL in development
 // const listedDescription =(description: string)=> description.split('.').map(item=>item.trim())
+
 useEffect(() => {
     const fetchTopics = async () => {
       try {

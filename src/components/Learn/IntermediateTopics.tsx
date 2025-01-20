@@ -1,6 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import useFetchTopics from '../Shared/Custom_fetch';
+import React from 'react';
 import { useTopics } from '../../context/TopicsContext';
 
 const IntermediateTopics: React.FC = () => {
