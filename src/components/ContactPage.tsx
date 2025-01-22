@@ -95,84 +95,67 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-6 lg:px-20 py-10 flex items-center justify-center">
-      <div className="m-20 lg:w-full max-w-3xl bg-white shadow-lg rounded-lg p-8">
-        
-        {/* Heading Section */}
-        <div className="text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-indigo-600">Contact Us</h1>
-          <p className="text-gray-600 mt-2">
-            Have a question or need assistance? We're here to help! Fill out the form below, and we’ll get back to you soon.
-          </p>
-        </div>
-
-        {/* Form Section */}
-        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
-          {/* Name */}
-          <div>
-            <label htmlFor="name" className="block text-gray-700 font-medium">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label htmlFor="email" className="block text-gray-700 font-medium">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-
-        
-
-          {/* Message */}
-          <div>
-            <label htmlFor="message" className="block text-gray-700 font-medium">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Write your message here"
-              rows={5}
-              required
-            ></textarea>
-          </div>
-
-          {/* Submit Button */}
-          <div className="text-center">
-            <button
-              type="submit"
-              className="px-6 py-3 bg-indigo-500 text-white font-medium rounded-lg shadow-md hover:bg-indigo-600 transition duration-300"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
+    <div className="min-h-screen  flex items-center justify-center px-4">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white shadow-lg rounded-lg w-full sm:w-3/4 lg:w-1/2 p-6 space-y-6"
+    >
+      <h2 className="text-3xl font-bold text-center text-indigo-600">Contact Us</h2>
+      <p className="text-center text-gray-600">We're here to help! Fill out the form below, and we’ll get back to you soon.</p>
+  
+      <div>
+        <label htmlFor="name" className="block text-gray-700 font-medium">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500"
+          placeholder="Your Name"
+          required
+        />
       </div>
-    </div>
+  
+      <div>
+        <label htmlFor="email" className="block text-gray-700 font-medium">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500"
+          placeholder="Your Email"
+          required
+        />
+      </div>
+  
+      <div>
+        <label htmlFor="message" className="block text-gray-700 font-medium">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500"
+          placeholder="Write your message here"
+          rows={5}
+          required
+        ></textarea>
+      </div>
+  
+      <div className="text-center">
+        <button
+          type="submit"
+          className="bg-indigo-500 text-white px-6 py-3 rounded-lg hover:bg-indigo-600"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+  
   );
 };
 

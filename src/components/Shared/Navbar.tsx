@@ -20,15 +20,15 @@ const Navbar: React.FC = () => {
   };
   return (
     
-    <nav className="bg-transparent text-white px-4 py-4 fixed top-0 w-full z-20">
+    <nav className="bg-indigo-100 text-white  shadow-md fixed top-0 w-full z-20">
       
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <div>
+    
           <Link to="/" className="text-indigo-600 text-2xl font-bold hover:text-indigo-800 transition">
             Coding Platform
           </Link>
-        </div>
+    
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex space-x-6">
@@ -68,17 +68,18 @@ const Navbar: React.FC = () => {
             </>
           )}
         </div>
-        </div>
+        {/* </div> */}
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden"> */}
           <button
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-700 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+            className="md:hidden text-indigo-800 hover:text-indigo-300 focus:outline-none"
           >
+             {/* {isMobileMenuOpen ? '✕' : '☰'} */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -95,8 +96,8 @@ const Navbar: React.FC = () => {
               />
             </svg>
           </button>
-        </div>
-      {/* </div> */}
+        {/* </div> */}
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (

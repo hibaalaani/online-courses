@@ -88,15 +88,15 @@ function App() {
       )}
 
       {/* Back and Reset Buttons */}
-      <div className="fixed top-20 left-4 z-50">
+      <div className="fixed top-20 left-4 z-50 flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
         { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&& window.location.pathname !== '/dashboard'&&(
           <button
             onClick={goBack}
-            className="px-6 py-3 bg-indigo-500 text-white rounded-lg shadow-md hover:bg-indigo-600 transition-all flex items-center space-x-2"
+            className="flex items-center px-4 py-2 bg-indigo-500 text-white text-sm rounded-lg shadow-md hover:bg-indigo-600 transition-all md:px-6 md:py-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-4 w-4 md:h-5 md:w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -104,19 +104,19 @@ function App() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
-            <span>Back</span>
+            <span className="ml-2">Back</span>
           </button>
         )}
-      </div>
-      <div className="fixed top-20 right-4 z-50">
+      {/* </div> */}
+      {/* <div className="fixed top-20 right-4 z-50 pt-16"> */}
         { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&& window.location.pathname !== '/dashboard'&&(
           <button
             onClick={resetSelection}
-            className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition-all flex items-center space-x-2"
+            className="flex items-center px-4 py-2 bg-red-500 text-white text-sm rounded-lg shadow-md hover:bg-red-600 transition-all md:px-6 md:py-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-4 w-4 md:h-5 md:w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -124,13 +124,13 @@ function App() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <span>Reset</span>
+            <span className="ml-2">Reset</span>
           </button>
         )}
       </div>
       
         {/* Main Content */}
-      <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 ">
+      <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 pt-16">
       {/* Routes */}
       <Routes>
         <Route
