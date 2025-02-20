@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import LearnOverview from './components/Learn/LearnOverview';
 import BuildOverview from './components/Build/BuildOverview';
@@ -29,7 +29,8 @@ function App() {
   const [selection, setSelection] = useState<Selection>({});
   const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const currentPath = location.pathname;
   // Resets the app state
   const resetSelection = () => {
     setSelection({});
@@ -38,7 +39,7 @@ function App() {
   console.log(import.meta.env.VITE_API_URL_USER_BASE_URL);
   // Back button logic
   const goBack = () => {
-    const currentPath = window.location.pathname;
+    // const currentPath = currentPath;
     if (currentPath.includes('/learn/booking')) {
       navigate('/learn/overview'); // Go back to the overview
     } else if (currentPath.includes('/learn/overview')) {
@@ -89,7 +90,7 @@ function App() {
 
       {/* Back and Reset Buttons */}
       <div className="fixed top-20 left-4 z-50 flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
-        { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&& window.location.pathname !== '/dashboard'&&(
+        { currentPath !== '/' && currentPath !== '/contact' && currentPath !== '/login' && currentPath !== '/register'&& currentPath !== '/dashboard'&&(
           <button
             onClick={goBack}
             className="flex items-center px-4 py-2 bg-indigo-500 text-white text-sm rounded-lg shadow-md hover:bg-indigo-600 transition-all md:px-6 md:py-3"
@@ -109,7 +110,7 @@ function App() {
         )}
       {/* </div> */}
       {/* <div className="fixed top-20 right-4 z-50 pt-16"> */}
-        { window.location.pathname !== '/' && window.location.pathname !== '/contact' && window.location.pathname !== '/login' && window.location.pathname !== '/register'&& window.location.pathname !== '/dashboard'&&(
+        { currentPath !== '/' && currentPath !== '/contact' && currentPath !== '/login' && currentPath !== '/register'&& currentPath !== '/dashboard'&&(
           <button
             onClick={resetSelection}
             className="flex items-center px-4 py-2 bg-red-500 text-white text-sm rounded-lg shadow-md hover:bg-red-600 transition-all md:px-6 md:py-3"
