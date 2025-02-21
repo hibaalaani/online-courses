@@ -28,16 +28,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
           </div>
 
           {/* 🎯 Buttons Section */}
-          <div className="flex flex-col md:flex-row justify-center md:space-x-6 space-y-4 md:space-y-0 animate-fade-in-up">
+          <div className="flex flex-col md:flex-row items-center justify-center md:space-x-6 space-y-4 md:space-y-0 animate-fade-in-up">
             <button
               onClick={() => onNext('learn')}
-              className="w-full md:w-auto px-8 py-4 bg-indigo-500 text-white text-lg rounded-lg shadow-lg hover:bg-indigo-700 transition-transform hover:scale-105"
+              className="w-auto max-w-[250px] px-5 py-3 bg-indigo-500 text-white text-lg rounded-lg shadow-lg hover:bg-indigo-700 transition-transform hover:scale-105"
             >
               Learn
             </button>
             <button
               onClick={() => onNext('build')}
-              className="w-full md:w-auto px-8 py-4 bg-green-500 text-white text-lg rounded-lg shadow-lg hover:bg-green-600 transition-transform hover:scale-105"
+              className="w-auto max-w-[250px] px-5 py-3 bg-green-500 text-white text-lg rounded-lg shadow-lg hover:bg-green-600 transition-transform hover:scale-105"
             >
               Build a Project
             </button>

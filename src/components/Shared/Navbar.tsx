@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   };
   return (
     
-    <nav className="bg-indigo-200 text-white  shadow-md fixed top-0 w-full z-20">
+    <nav className="bg-indigo-200 text-white  shadow-md fixed top-0 w-full z-20 ">
       
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
