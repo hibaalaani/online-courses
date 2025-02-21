@@ -9,8 +9,8 @@ const LearnOverview: React.FC<LearnOverviewProps> = ({ onSelectModal, onNext }) 
 
     return (
         <div className="min-h-screen  px-8 lg:px-18 flex flex-col items-center justify-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-indigo-600">Learn Coding</h1>
-          <p className="mt-4 text-center text-gray-600 text-sm sm:text-base">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-indigo-200">Learn Coding</h1>
+          <p className="mt-4 text-center text-gray-200 text-sm sm:text-base">
             Choose your level to start learning step-by-step.
           </p>
           <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">

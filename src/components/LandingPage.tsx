@@ -6,50 +6,38 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
   return (
-    
-    <div className="  flex items-center justify-center min-h-screen bg-gray-100 px-8 lg:px-18 overflow-hidden  bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-white overflow-hidden">
       
-  {/* Floating Shapes */}
-<div className="floating-shape shape1"></div>
-<div className="floating-shape shape2"></div>
-<div className="floating-shape shape3"></div>
-<div className="floating-shape shape4"></div>
-<div className="floating-shape shape5"></div>
-<div className="floating-shape shape6"></div>
+      {/* 🪐 Floating Cosmic Elements */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+      <div className="absolute top-1/2 right-16 w-24 h-24 bg-red-500 rounded-full blur-xl opacity-50 animate-pulse"></div>
+      <div className="absolute bottom-10 left-1/4 w-36 h-36 bg-indigo-600 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+      <div className="absolute inset-0 bg-[url('/stars.svg')] bg-repeat opacity-20"></div>
 
-
-      <div className="text-center mx-auto w-full">
-        {/* Grid Layout */}
+      <div className="text-center mx-auto w-full relative z-10">
+        {/* 🚀 Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Section */}
+          {/* 📝 Text Section */}
           <div className="max-w-lg mx-auto animate-fade-in-down">
-       
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-indigo-600 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-md transition-transform hover:scale-105">
               Welcome to the Coding Platform
             </h1>
-         
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-300 max-w-xl mx-auto">
               Choose between learning new coding skills or building exciting projects with guided tutorials.
             </p>
           </div>
-      {/* Floating Shapes */}
-<div className="floating-shape shape1"></div>
-<div className="floating-shape shape2"></div>
-<div className="floating-shape shape3"></div>
-<div className="floating-shape shape4"></div>
-<div className="floating-shape shape5"></div>
-<div className="floating-shape shape6"></div>
-          {/* Buttons Section */}
+
+          {/* 🎯 Buttons Section */}
           <div className="flex flex-col md:flex-row justify-center md:space-x-6 space-y-4 md:space-y-0 animate-fade-in-up">
-          <button
+            <button
               onClick={() => onNext('learn')}
-              className="w-full md:w-auto px-8 py-4 bg-primary text-white text-lg rounded-lg shadow-lg hover:bg-indigo-700 transition-all"
+              className="w-full md:w-auto px-8 py-4 bg-indigo-500 text-white text-lg rounded-lg shadow-lg hover:bg-indigo-700 transition-transform hover:scale-105"
             >
               Learn
             </button>
             <button
               onClick={() => onNext('build')}
-              className="w-full md:w-auto px-8 py-4 bg-secondary text-white text-lg rounded-lg shadow-lg hover:bg-green-600 transition-all"
+              className="w-full md:w-auto px-8 py-4 bg-green-500 text-white text-lg rounded-lg shadow-lg hover:bg-green-600 transition-transform hover:scale-105"
             >
               Build a Project
             </button>

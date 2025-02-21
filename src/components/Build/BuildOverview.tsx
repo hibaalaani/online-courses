@@ -8,8 +8,8 @@ interface BuildOverviewProps {
 const BuildOverview: React.FC<BuildOverviewProps> = ({ onSelectModal, onNext }) => {
   return (
     <div className="min-h-screen px-8 lg:px-18 flex flex-col items-center justify-center">
-      <h1 className="text-4xl md:text-5xl font-bold text-indigo-600">Build a Project</h1>
-      <p className="mt-4 text-lg text-gray-600">
+      <h1 className="text-4xl md:text-5xl font-bold text-indigo-200">Build a Project</h1>
+      <p className="mt-4 text-lg text-gray-200">
         Choose your level and start building exciting projects.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">

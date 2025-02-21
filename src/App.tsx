@@ -131,7 +131,8 @@ function App() {
       </div>
       
         {/* Main Content */}
-      <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 pt-16">
+      {/* <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 pt-16"> */}
+      <div className=" min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-indigo-600 overflow-hidden">
       {/* Routes */}
       <Routes>
         <Route

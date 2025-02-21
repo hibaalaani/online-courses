@@ -146,7 +146,7 @@ const Register: React.FC = () => {
           />
           <button
             onClick={handleRegister}
-            className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
+            className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-500 transition"
           >
             Register
           </button>

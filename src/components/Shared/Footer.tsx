@@ -3,7 +3,7 @@ import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 const Footer: React.FC = () => {
   return (
-    <footer className="  bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-4 sm:px-6 lg:px-8 shadow-md ">
+    <footer className="bg-indigo-200 sm:px-6 lg:px-8 shadow-md ">
       <div className="max-w-7xl mx-auto py-6 flex flex-col md:flex-row justify-between items-center">
          {/* Social Media Icons */}
          <div className="flex space-x-6">
