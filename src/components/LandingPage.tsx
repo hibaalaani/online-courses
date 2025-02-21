@@ -37,7 +37,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
             </button>
             <button
               onClick={() => onNext('build')}
-              className="w-auto max-w-[250px] px-5 py-3 bg-green-500 text-white text-lg rounded-lg shadow-lg hover:bg-green-600 transition-transform hover:scale-105"
+              className="w-auto max-w-[250px] px-5 py-3 bg-amber-500 text-white text-lg rounded-lg shadow-lg hover:bg-amber-600 transition-transform hover:scale-105"
             >
               Build a Project
             </button>
