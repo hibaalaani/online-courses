@@ -7,5 +7,9 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.cjs',
   },
- 
+  base: '/',  // Make sure base is set correctly
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
 })
