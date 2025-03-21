@@ -44,6 +44,10 @@ const Navbar: React.FC = () => {
           <Link to="/contact" className="text-gray-700 hover:text-indigo-600 transition">
             Contact
           </Link>
+
+          <Link to="/beginner-roadmap" className="text-gray-700 hover:text-indigo-600 transition">
+            9-13 years
+          </Link>
            {/* Conditional Rendering for Auth Links */}
            {username ? (
             <>

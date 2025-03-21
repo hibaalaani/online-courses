@@ -1,10 +1,19 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 interface LandingPageProps {
   onNext: (choice: 'learn' | 'build') => void;
 }
 
+
+
 const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
+
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleBeginnerNavigate = () => {
+    navigate("/beginner-roadmap"); // Redirect to roadmap page
+  };
+
   return (
     <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-white overflow-hidden">
       
@@ -40,6 +49,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
               className="w-auto max-w-[250px] px-5 py-3 bg-amber-500 text-white text-lg rounded-lg shadow-lg hover:bg-amber-600 transition-transform hover:scale-105"
             >
               Build a Project
+            </button>
+
+               {/* 🧒 Beginner Learning Path Button */}
+               <button
+              onClick={handleBeginnerNavigate}
+              className="w-auto max-w-[250px] px-5 py-3 bg-green-500 text-white text-lg rounded-lg shadow-lg hover:bg-green-600 transition-transform hover:scale-105"
+            >
+              Learning Path (9-13)
             </button>
           </div>
         </div>

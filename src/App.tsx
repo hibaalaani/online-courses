@@ -20,6 +20,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import { UserProvider } from './context/UserContext';
 import Dashboard from './components/Dashboard';
+import BeginnerRoadmap from './components/ChildRoad';
 interface Selection {
   type?: string;
   level?: string;
@@ -52,7 +53,10 @@ function App() {
       navigate('/build');
     } else if (currentPath.includes('/build')) {
       navigate('/');
-    }
+    
+  } else if (currentPath.includes('/beginner-roadmap')) {
+    navigate('/');
+  }
   };
 
   const handleSelection = (key: keyof Selection, value: string) => {
@@ -208,7 +212,7 @@ function App() {
 <Route path="/register" element={<Register />} />
 <Route path="/contact" element={<ContactPage />} />
 <Route path="/dashboard" element={<Dashboard />} />
-
+<Route path="/beginner-roadmap" element={<BeginnerRoadmap />} />
       </Routes>
       <Footer/>
       {/* </div> */}
