@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Banner from '../assets/banner.jpg'
 interface LandingPageProps {
   onNext: (choice: 'learn' | 'build') => void;
 }
@@ -28,6 +29,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* 📝 Text Section */}
           <div className="max-w-lg mx-auto animate-fade-in-down">
+            
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl mt-20">
+  {/* Strong gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-white/20 z-10 rounded-2xl mix-blend-multiply"></div>
+
+  {/* Responsive image */}
+  <img
+    src={Banner}
+    alt="Coding Banner"
+    className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover rounded-2xl brightness-75 transition-all duration-500 hover:scale-105"
+  />
+</div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-md transition-transform hover:scale-105">
               Welcome to the Coding Platform
             </h1>
