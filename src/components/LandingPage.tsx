@@ -19,9 +19,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
     <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-white overflow-hidden">
       
       {/* 🪐 Floating Cosmic Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-      <div className="absolute top-1/2 right-16 w-24 h-24 bg-red-500 rounded-full blur-xl opacity-50 animate-pulse"></div>
-      <div className="absolute bottom-10 left-1/4 w-36 h-36 bg-indigo-600 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+      <div className="absolute top-10 left-10 w-32 h-32 bg-purple-400 rounded-full blur-md opacity-30 animate-[float_6s_ease-in-out_infinite] delay-500"></div>
+      <div className="absolute top-1/2 right-16 w-24 h-24 bg-red-400 rounded-full blur-md opacity-50 animate-[float_6s_ease-in-out_infinite] delay-500"></div>
+      <div className="absolute bottom-10 left-1/4 w-36 h-36 bg-indigo-400 rounded-full blur-md opacity-40 animate-[float_6s_ease-in-out_infinite] delay-500"></div>
       <div className="absolute inset-0 bg-[url('/stars.svg')] bg-repeat opacity-20"></div>
 
       <div className="text-center mx-auto w-full relative z-10">
@@ -36,7 +36,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
 
   {/* Responsive image */}
   <img
-    src={Banner}
+    src='../banner.webp'
     alt="Coding Banner"
     className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover rounded-2xl brightness-75 transition-all duration-500 hover:scale-105"
   />
