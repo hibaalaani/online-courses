@@ -7,7 +7,7 @@ interface BuildOverviewProps {
 
 const BuildOverview: React.FC<BuildOverviewProps> = ({ onSelectModal, onNext }) => {
   return (
-    <div className="min-h-screen px-8 lg:px-18 flex flex-col items-center justify-center">
+    <div className="min-h-screen px-8 lg:px-18 flex flex-col items-center justify-center py-24">
       <h1 className="text-4xl md:text-5xl font-bold text-indigo-200">Build a Project</h1>
       <p className="mt-4 text-lg text-gray-200">
         Choose your level and start building exciting projects.

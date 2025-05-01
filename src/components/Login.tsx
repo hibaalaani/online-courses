@@ -7,9 +7,9 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  // const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const { setUser } = useUser(); // Access the setUser method from UserContext
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -25,8 +25,9 @@ const Login: React.FC = () => {
       console.log(response.data)
       const {username:name , email , joined , access}  = response.data
       localStorage.setItem("token", access);
-      localStorage.setItem("username", name);
- 
+    //   localStorage.setItem("username", name);
+    //  localStorage.setItem("email", email);
+    //  localStorage.setItem("joined" , joined)
       setUser({username:name , email:email , joined})
 
 
@@ -49,8 +50,8 @@ const Login: React.FC = () => {
         <div className="max-w-md mx-auto mt-10 p-10 bg-white shadow-md rounded-lg">
           <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
           <input
-            type="text"
-            placeholder="Username"
+            type="email"
+            placeholder="Email"
             className="w-full p-3 mb-4 border rounded"
             value={username}
             onChange={(e) => setUsername(e.target.value)}

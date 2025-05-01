@@ -8,7 +8,7 @@ const LearnOverview: React.FC<LearnOverviewProps> = ({ onSelectModal, onNext }) 
     // const [isBeginnerPopupOpen, setBeginnerPopupOpen] = useState(false);
 
     return (
-        <div className="min-h-screen  px-8 lg:px-18 flex flex-col items-center justify-center">
+        <div className="min-h-screen  px-8 lg:px-18 flex flex-col items-center justify-center py-24">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-indigo-200">Learn Coding</h1>
           <p className="mt-4 text-center text-gray-200 text-sm sm:text-base">
             Choose your level to start learning step-by-step.

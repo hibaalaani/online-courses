@@ -1,33 +1,35 @@
-// import axios from "axios";
-import {createContext, useContext, useEffect, useState} from "react";
+// context/UserContext.tsx
+import React, { createContext, useContext, useEffect, useState, Dispatch, SetStateAction } from "react";
 
 interface User {
-  username: string;
-  email: string;
-  joined:string
+  username: string | null;
+  email: string | null;
+  joined: string | null;
 }
 
 interface UserContextType {
   user: User;
-  setUser:React.Dispatch<React.SetStateAction<User>>; // Expose setUser ;
+  setUser: (userData: { username: string; email: string; joined: string }) => void;
+  logout: () => void;
   loading: boolean;
   error: string | null;
 }
+
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const UserProvider: React.FC<{children: React.ReactNode}> = ({
+export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User>({username: "", email: "" , joined :""});
+  const [user, setUserState] = useState<User>({ username: null, email: null, joined: null });
   const [loading] = useState<boolean>(false);
   const [error] = useState<string | null>(null);
 
   useEffect(() => {
-    const savedUsername = localStorage.getItem("username") || "";
-    const savedEmail = localStorage.getItem("email") || "";
-    const savedJoined = localStorage.getItem("joined") || "";
+    const savedUsername = localStorage.getItem("username");
+    const savedEmail = localStorage.getItem("email");
+    const savedJoined = localStorage.getItem("joined");
     if (savedUsername || savedEmail) {
-      setUser({
+      setUserState({
         username: savedUsername,
         email: savedEmail,
         joined: savedJoined,
@@ -35,8 +37,20 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({
     }
   }, []);
 
+  const setUser = (userData: { username: string; email: string; joined: string }) => {
+    localStorage.setItem("username", userData.username);
+    localStorage.setItem("email", userData.email);
+    localStorage.setItem("joined", userData.joined);
+    setUserState(userData);
+  };
+
+  const logout = () => {
+    localStorage.clear();
+    setUserState({ username: null, email: null, joined: null });
+  };
+
   return (
-    <UserContext.Provider value={{user, setUser, loading, error}}>
+    <UserContext.Provider value={{ user, setUser, logout, loading, error }}>
       {children}
     </UserContext.Provider>
   );
@@ -45,7 +59,7 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({
 export const useUser = (): UserContextType => {
   const context = useContext(UserContext);
   if (!context) {
-    throw new Error("useTopics must be used within a TopicsProvider");
+    throw new Error("useUser must be used within a UserProvider");
   }
   return context;
 };

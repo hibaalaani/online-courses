@@ -20,7 +20,16 @@ export default {
         'fade-in-up': 'fadeInUp 0.8s ease-out',
         float: 'float 3s infinite',
         'fade-out': 'fadeOut 0.5s ease-in-out',
-      },
+        backgroundShift: 'backgroundShift 10s ease-in-out infinite',
+        waveSlow: 'waveSlow 40s linear infinite',
+        waveMedium: 'waveMedium 30s linear infinite',
+        waveFast: 'waveFast 20s linear infinite',
+        starsMove: 'starsMove 10s ease-in-out infinite',
+        spinSlow: 'spin 20s linear infinite',
+        flicker: 'flicker 2s infinite',
+        wiggle: 'wiggle 3s ease-in-out infinite',
+
+       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
@@ -46,7 +55,38 @@ export default {
           '0%': { opacity: 1 },
           '100%': { opacity: 0 },
         },
-      
+        backgroundShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        waveSlow: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-25%)' },
+        },
+        waveMedium: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        waveFast: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-75%)' },
+        },
+        starsMove: {
+          // '0%': {opacity: 0.2 },
+          // '100%': {opacity: 0.5},
+          '0%, 100%': { opacity: 0.2 },
+          '50%': { opacity: 0.6 },
+          '80%': { opacity: 0.75 },
+        },
+        flicker: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.6 },
+          '80%': { opacity: 0.85 },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' },
+        },
       },
     },
   },

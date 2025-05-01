@@ -20,6 +20,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import { UserProvider } from './context/UserContext';
 import Dashboard from './components/Dashboard';
+import BeginnerRoadmap from './components/ChildRoad';
+import FloatingStars from './components/Shared/FloatingStars';
 interface Selection {
   type?: string;
   level?: string;
@@ -52,7 +54,10 @@ function App() {
       navigate('/build');
     } else if (currentPath.includes('/build')) {
       navigate('/');
-    }
+    
+  } else if (currentPath.includes('/beginner-roadmap')) {
+    navigate('/');
+  }
   };
 
   const handleSelection = (key: keyof Selection, value: string) => {
@@ -72,7 +77,7 @@ function App() {
       <UserProvider>
      
       <Navbar />
-
+      <FloatingStars />
       {/* Modal */}
       {modalContent && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -89,6 +94,7 @@ function App() {
       )}
 
       {/* Back and Reset Buttons */}
+      <div className="fixed top-20 left-4 z-50 flex-col space-y-2 md:flex-row md:space-x-4 hidden md:flex">
       <div className="fixed top-20 left-4 z-50 flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
         { currentPath !== '/' && currentPath !== '/contact' && currentPath !== '/login' && currentPath !== '/register'&& currentPath !== '/dashboard'&&(
           <button
@@ -129,7 +135,7 @@ function App() {
           </button>
         )}
       </div>
-      
+      </div>
         {/* Main Content */}
       {/* <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 pt-16"> */}
       <div className=" min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-indigo-600 overflow-hidden">
@@ -208,7 +214,7 @@ function App() {
 <Route path="/register" element={<Register />} />
 <Route path="/contact" element={<ContactPage />} />
 <Route path="/dashboard" element={<Dashboard />} />
-
+<Route path="/beginner-roadmap" element={<BeginnerRoadmap />} />
       </Routes>
       <Footer/>
       {/* </div> */}
