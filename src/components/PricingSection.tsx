@@ -1,4 +1,3 @@
-import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const PricingSection = () => {
@@ -39,7 +38,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 text-white text-center bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-600 rounded-3xl">
+    <section className="my-20  py-24 px-6 text-white text-center bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-600 rounded-3xl">
       <h2 className="text-4xl font-bold text-cyan-400 mb-14">Choose Your Plan</h2>
 
       <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">

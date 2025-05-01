@@ -2,9 +2,9 @@ import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 
 interface BookingPageProps {
   onBookingConfirmed: () => void;
-  user?: {
-    name: string;
-    email: string;
+  user: {
+    name: string|null;
+    email: string|null;
   };
 }
 

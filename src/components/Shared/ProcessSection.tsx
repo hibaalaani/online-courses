@@ -20,7 +20,7 @@ export const ProcessSection = () => {
   ];
 
   return (
-    <section id="process" className="z-10 text-center p-12 max-w-6xl py-20 mx-auto">
+    <section id="process" className=" my-20 z-10 text-center p-12 max-w-6xl py-20 mx-auto">
       <h2 className="text-4xl font-bold text-cyan-400 mb-8">Your Learning Journey</h2>
       <p className="text-lg text-gray-300 leading-relaxed mb-12">
         Every learner's path is unique — but every journey starts with a single step. Here's how we guide you:

@@ -20,7 +20,7 @@ export const VisionSection = () => {
   ];
 
   return (
-    <section id="vision" className="z-10 text-center p-12 max-w-6xl py-20 mx-auto">
+    <section id="vision" className="z-10 text-center p-12 max-w-6xl py-24 mx-auto my-20">
       <h2 className="text-4xl font-bold text-cyan-400 mb-8">Our Mission</h2>
       <p className="text-lg text-gray-300 leading-relaxed mb-12">
         At Bug to Byte, we believe learning to code should be simple, fun, and inspiring for everyone — from curious kids to ambitious teens and beginner adults.
