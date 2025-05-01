@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PricingSection from './PricingSection';
-import { useInView } from 'react-intersection-observer';
+// import { useInView } from 'react-intersection-observer';
 import { VisionSection } from './Shared/VisionSection';
 import { ProcessSection } from './Shared/ProcessSection';
-const LandingPage = () => {
+
+interface LandingPageProps {
+  onNext: (choice: string) => void;
+}
+const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
   const navigate = useNavigate();
   const [showOptions, setShowOptions] = useState(false);
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
+  // const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  
   const handleBeginnerNavigate = () => {
     navigate("/beginner-roadmap");
   };
@@ -227,7 +231,7 @@ const LandingPage = () => {
 <PricingSection/>
 
 
-<section id="cta" className="z-10 text-center px-6 sm:px-12 max-w-6xl py-20 mx-auto my-24">
+<section id="cta" className=" z-10 text-center px-6 sm:px-12 max-w-6xl py-20 mx-auto my-24">
   <div className="bg-gradient-to-r from-purple-900 to-indigo-500 p-6 sm:p-12 md:p-20 rounded-2xl shadow-2xl">
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
       Ready to Build Your First Project? 🚀
@@ -248,8 +252,9 @@ const LandingPage = () => {
       Start Your Journey
     </button>
   </div>
+ 
 </section>
-
+ 
    
     </div>
   );
