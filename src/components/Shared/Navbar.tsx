@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
-          {['/', '/learn', '/build', '/contact', '/beginner-roadmap'].map((path) => (
+          {['/', '/learn', '/build', '/contact', '/kids-7-17'].map((path) => (
             <Link
               key={path}
               to={path}

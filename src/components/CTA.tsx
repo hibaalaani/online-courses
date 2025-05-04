@@ -83,13 +83,25 @@ const CTA: React.FC<CTAProps> = ({ setShowOptions }) => {
       animate="animate"
     >
       <motion.div
-        className="bg-gradient-to-r from-purple-900 to-indigo-500 p-6 sm:p-12 md:p-20 rounded-2xl shadow-2xl relative overflow-hidden"
+        className="bg-gradient-to-r rom-indigo-900 via-purple-900 to-indigo-600 p-6 sm:p-12 md:p-20 rounded-2xl shadow-2xl relative overflow-hidden"
       >
         {/* Animated Background Gradient (Subtle Movement) */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-purple-700 via-indigo-600 to-blue-500 opacity-20 blur-lg animate-pulse"
-          style={{ animationDuration: '5s' }}
-        />
+      <motion.div
+  className="absolute inset-0 opacity-25 blur-xl"
+  animate={{
+    background: [
+      'linear-gradient(45deg, #6366F1, #A78BFA, #E0E7FF)',
+      'linear-gradient(90deg, #6366F1, #D8B4FE, #A3A3F7)',
+      'linear-gradient(135deg, #6366F1, #818CF8, #6D28D9)',
+      'linear-gradient(45deg, #6366F1, #A78BFA, #E0E7FF)', // loop back
+    ],
+  }}
+  transition={{
+    duration: 15,
+    ease: 'linear',
+    repeat: Infinity,
+  }}
+/>
 
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 relative"
