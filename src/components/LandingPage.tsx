@@ -4,12 +4,13 @@ import PricingSection from './PricingSection';
 // import { useInView } from 'react-intersection-observer';
 import { VisionSection } from './Shared/VisionSection';
 import { ProcessSection } from './Shared/ProcessSection';
+import CTA from './CTA';
 
 interface LandingPageProps {
   onNext: (choice: string) => void;
 }
 const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
-  console.log(onNext)
+ 
   const navigate = useNavigate();
   const [showOptions, setShowOptions] = useState(false);
   // const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -103,7 +104,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
   </div>
 </div>
 
-  <h1 id='CTA' className="text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+  <h1 id ='CTA' className="text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
     Transform Curiosity Into Creation 🚀
   </h1>
 
@@ -121,7 +122,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
       Start Your Journey
     </button>
   ) : (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+    <div id='cta-options' className="flex flex-col md:flex-row items-center justify-center gap-6">
     <button
       onClick={() => navigate("/learn")}
       className="px-8 py-4 bg-indigo-500 hover:bg-indigo-400 transition text-white rounded-full font-semibold shadow-lg hover:shadow-cyan-400/50 hover:scale-105 duration-300"
@@ -232,6 +233,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
 <PricingSection/>
 
 
+{/* CTA section */}
+   <CTA setShowOptions={setShowOptions} />
+{/* 
 <section id="cta" className=" z-10 text-center px-6 sm:px-12 max-w-6xl py-20 mx-auto my-24">
   <div className="bg-gradient-to-r from-purple-900 to-indigo-500 p-6 sm:p-12 md:p-20 rounded-2xl shadow-2xl">
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
@@ -255,7 +259,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
   </div>
  
 </section>
- 
+  */}
    
     </div>
   );

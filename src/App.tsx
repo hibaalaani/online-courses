@@ -21,6 +21,7 @@ import { UserProvider } from './context/UserContext';
 import Dashboard from './components/Dashboard';
 import BeginnerRoadmap from './components/ChildRoad';
 import FloatingStars from './components/Shared/FloatingStars';
+
 interface Selection {
   type?: string;
   level?: string;
@@ -32,31 +33,28 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
-  // Resets the app state
+
   const resetSelection = () => {
     setSelection({});
-    navigate('/'); // Redirect to the landing page
+    navigate('/');
   };
-  console.log(import.meta.env.VITE_API_URL_USER_BASE_URL);
-  // Back button logic
+
   const goBack = () => {
-    // const currentPath = currentPath;
     if (currentPath.includes('/learn/booking')) {
-      navigate('/learn/overview'); // Go back to the overview
+      navigate('/learn/overview');
     } else if (currentPath.includes('/learn/overview')) {
-      navigate('/learn'); // Go back to the level selection
+      navigate('/learn');
     } else if (currentPath.includes('/learn')) {
-      navigate('/'); // Go back to the landing page
+      navigate('/');
     } else if (currentPath.includes('/build/booking')) {
       navigate('/build/overview');
     } else if (currentPath.includes('/build/overview')) {
       navigate('/build');
     } else if (currentPath.includes('/build')) {
       navigate('/');
-    
-  } else if (currentPath.includes('/beginner-roadmap')) {
-    navigate('/');
-  }
+    } else if (currentPath.includes('/beginner-roadmap')) {
+      navigate('/');
+    }
   };
 
   const handleSelection = (key: keyof Selection, value: string) => {
@@ -74,152 +72,86 @@ function App() {
   return (
     <TopicsProvider>
       <UserProvider>
-     
-      <Navbar />
-      <div className="relative z-0 min-h-screen overflow-hidden">
-      <FloatingStars />
-    
-      {/* Modal */}
-      {modalContent && (
-        <div className="relative z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
-            >
-              ✖
-            </button>
-            {modalContent}
+        <div className="flex flex-col min-h-screen overflow-hidden relative">
+          <Navbar />
+          <main className="flex-grow z-10 bg-gradient-to-b from-indigo-900 to-purple-900 text-indigo-600">
+            <FloatingStars />
+
+            {modalContent && (
+              <div className="relative z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
+                  <button
+                    onClick={closeModal}
+                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+                  >
+                    ✖
+                  </button>
+                  {modalContent}
+                </div>
+              </div>
+            )}
+
+            <div className="fixed top-20 left-4 z-50 flex-col space-y-2 md:flex-row md:space-x-4 hidden md:flex">
+              <div className="fixed top-20 left-4 z-50 flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
+                {currentPath !== '/' && !['/contact', '/login', '/register', '/dashboard'].includes(currentPath) && (
+                  <button
+                    onClick={goBack}
+                    className="flex items-center px-4 py-2 bg-indigo-500 text-white text-sm rounded-lg shadow-md hover:bg-indigo-600 transition-all md:px-6 md:py-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 md:h-5 md:w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span className="ml-2">Back</span>
+                  </button>
+                )}
+                {currentPath !== '/' && !['/contact', '/login', '/register', '/dashboard'].includes(currentPath) && (
+                  <button
+                    onClick={resetSelection}
+                    className="flex items-center px-4 py-2 bg-red-500 text-white text-sm rounded-lg shadow-md hover:bg-red-600 transition-all md:px-6 md:py-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 md:h-5 md:w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span className="ml-2">Reset</span>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <Routes>
+              <Route path="/" element={<LandingPage onNext={(choice: string) => { handleSelection('type', choice); navigate(`${choice}`); }} />} />
+              <Route path="/learn" element={<LearnOverview onSelectModal={(level) => { if (level === 'beginner') openModal(<BeginnerTopics />); if (level === 'intermediate') openModal(<IntermediateTopics />); if (level === 'advanced') openModal(<AdvancedTopics />); }} onNext={(level) => { handleSelection('level', level); navigate(`/learn/overview`); }} />} />
+              <Route path="/learn/overview" element={<BookingOverview selection={selection} onNext={() => navigate('/learn/booking')} />} />
+              <Route path="/learn/booking" element={<BookingForm selection={selection} />} />
+              <Route path="/build" element={<BuildOverview onSelectModal={(level) => { if (level === 'beginner') openModal(<BeginnerProjects />); if (level === 'intermediate') openModal(<IntermediateProjects />); if (level === 'advanced') openModal(<AdvancedProjects />); }} onNext={(level) => { handleSelection('level', level); navigate(`/build/overview`); }} />} />
+              <Route path="/build/overview" element={<BookingOverview selection={selection} onNext={() => navigate('/build/booking')} />} />
+              <Route path="/build/booking" element={<BookingForm selection={selection} />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/beginner-roadmap" element={<BeginnerRoadmap />} />
+            </Routes>
+          </main>
+
+          <div className="mt-auto z-10 relative">
+            <Footer />
           </div>
         </div>
-      )}
-
-      {/* Back and Reset Buttons */}
-      <div className="fixed top-20 left-4 z-50 flex-col space-y-2 md:flex-row md:space-x-4 hidden md:flex">
-      <div className="fixed top-20 left-4 z-50 flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
-        { currentPath !== '/' && currentPath !== '/contact' && currentPath !== '/login' && currentPath !== '/register'&& currentPath !== '/dashboard'&&(
-          <button
-            onClick={goBack}
-            className="flex items-center px-4 py-2 bg-indigo-500 text-white text-sm rounded-lg shadow-md hover:bg-indigo-600 transition-all md:px-6 md:py-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 md:h-5 md:w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-            <span className="ml-2">Back</span>
-          </button>
-        )}
-      {/* </div> */}
-      {/* <div className="fixed top-20 right-4 z-50 pt-16"> */}
-        { currentPath !== '/' && currentPath !== '/contact' && currentPath !== '/login' && currentPath !== '/register'&& currentPath !== '/dashboard'&&(
-          <button
-            onClick={resetSelection}
-            className="flex items-center px-4 py-2 bg-red-500 text-white text-sm rounded-lg shadow-md hover:bg-red-600 transition-all md:px-6 md:py-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 md:h-5 md:w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            <span className="ml-2">Reset</span>
-          </button>
-        )}
-      </div>
-      </div>
-        {/* Main Content */}
-      {/* <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 pt-16"> */}
-      <div className="min-h-screen z-10 bg-gradient-to-b from-indigo-900 to-purple-900  text-indigo-600 overflow-hidden">
-      {/* Routes */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <LandingPage
-            onNext={(choice: string) => {
-                handleSelection('type', choice);
-                navigate(`${choice}`); // Navigate to LearnOverview by default
-              }}
-            />
-          }
-        />
-        <Route
-          path="/learn"
-          element={
-            <LearnOverview
-              onSelectModal={(level) => {
-                if (level === 'beginner') openModal(<BeginnerTopics />);
-                if (level === 'intermediate') openModal(<IntermediateTopics />);
-                if (level === 'advanced') openModal(<AdvancedTopics />);
-              }}
-              onNext={(level) => {
-                handleSelection('level', level);
-                navigate(`/learn/overview`); // Navigate to overview before booking
-              }}
-            />
-          }
-        />
-        <Route
-          path="/learn/overview"
-          element={
-            <BookingOverview
-              selection={selection}
-              onNext={() => navigate('/learn/booking')}
-            />
-          }
-        />
-        <Route
-          path="/learn/booking"
-          element={<BookingForm selection={selection} />}
-        />
-        <Route
-          path="/build"
-          element={
-            <BuildOverview
-              onSelectModal={(level) => {
-                if (level === 'beginner') openModal(<BeginnerProjects />);
-                if (level === 'intermediate') openModal(<IntermediateProjects />);
-                if (level === 'advanced') openModal(<AdvancedProjects />);
-              }}
-              onNext={(level) => {
-                handleSelection('level', level);
-                navigate(`/build/overview`);
-              }}
-            />
-          }
-        />
-        <Route
-          path="/build/overview"
-          element={
-            <BookingOverview
-              selection={selection}
-              onNext={() => navigate('/build/booking')}
-            />
-          }
-        />
-        <Route
-          path="/build/booking"
-          element={<BookingForm selection={selection} />}
-        />
-         <Route path="/login" element={<Login />} />
-<Route path="/register" element={<Register />} />
-<Route path="/contact" element={<ContactPage />} />
-<Route path="/dashboard" element={<Dashboard />} />
-<Route path="/beginner-roadmap" element={<BeginnerRoadmap />} />
-      </Routes>
-    <Footer/>
-      </div>
-      </div>  
       </UserProvider>
     </TopicsProvider>
   );
