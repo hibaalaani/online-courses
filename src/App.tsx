@@ -76,10 +76,12 @@ function App() {
       <UserProvider>
      
       <Navbar />
+      <div className="relative z-0 min-h-screen overflow-hidden">
       <FloatingStars />
+    
       {/* Modal */}
       {modalContent && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="relative z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
             <button
               onClick={closeModal}
@@ -137,7 +139,7 @@ function App() {
       </div>
         {/* Main Content */}
       {/* <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-blue-100 to-green-100 px-8 lg:px-18 pt-16"> */}
-      <div className=" min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-indigo-600 overflow-hidden">
+      <div className="min-h-screen z-10 bg-gradient-to-b from-indigo-900 to-purple-900  text-indigo-600 overflow-hidden">
       {/* Routes */}
       <Routes>
         <Route
@@ -215,9 +217,9 @@ function App() {
 <Route path="/dashboard" element={<Dashboard />} />
 <Route path="/beginner-roadmap" element={<BeginnerRoadmap />} />
       </Routes>
-      <Footer/>
-      {/* </div> */}
+    <Footer/>
       </div>
+      </div>  
       </UserProvider>
     </TopicsProvider>
   );

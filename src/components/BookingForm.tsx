@@ -23,7 +23,7 @@ if (!user) return <p className="text-center text-red-500">Loading user info...</
         <span className="font-medium">{selection.level}</span>
       </p>
       {!bookingSuccess ? (
-     
+    
       <BookingPage onBookingConfirmed={() => setBookingSuccess(true)}   user={{
         name: user.username,
         email:user.email,

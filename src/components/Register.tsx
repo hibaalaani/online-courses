@@ -39,7 +39,7 @@ const Register: React.FC = () => {
   // Handle user registration
   const handleRegister = async () => {
     // Frontend Validation
-    if (!username) {
+    if (!username || username.trim() === "") {
       setError("Username is required");
       return;
     }
@@ -65,7 +65,7 @@ const Register: React.FC = () => {
     }
 
     try {
-      await axios.post(
+    const res =  await axios.post(
         `${import.meta.env.VITE_API_URL_USER_BASE_URL}/register/`,
         {
           username,
@@ -84,11 +84,17 @@ const Register: React.FC = () => {
       // Redirect to the login page after a delay
 
       setTimeout(() => navigate("/login"), 2000);
-    } catch (err) {
-      setError("Failed to register. Please try again.");
+    }  catch (err) {
+      if (axios.isAxiosError(err)) {
+        const backendErrors = err.response?.data;
+        // Combine all error messages into one string
+        const firstError = backendErrors?.email?.[0] || backendErrors?.username?.[0] || backendErrors?.password?.[0] || "Registration failed.";
+        setError(firstError);
+      } else {
+        setError("An unexpected error occurred.");
+      }
     }
-  };
-
+  }
   // Handle username input changes with validation
   const handleusernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
