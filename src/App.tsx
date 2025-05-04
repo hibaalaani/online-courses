@@ -74,23 +74,26 @@ function App() {
       <UserProvider>
         <div className="flex flex-col min-h-screen overflow-hidden relative">
           <Navbar />
-          <main className="flex-grow z-10 bg-gradient-to-b from-indigo-900 to-purple-900 text-indigo-600">
-            <FloatingStars />
+          {modalContent && (
+  <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+    <div className="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full relative">
+      <button
+        onClick={closeModal}
+        className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+      >
+        ✖
+      </button>
+      {modalContent}
+    </div>
+  </div>
+)}
+          <main className="relative flex-grow z-10 bg-gradient-to-b from-indigo-900 to-purple-900 text-indigo-600">
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+    <FloatingStars />
+  </div>
 
-            {modalContent && (
-              <div className="relative z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
-                  <button
-                    onClick={closeModal}
-                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
-                  >
-                    ✖
-                  </button>
-                  {modalContent}
-                </div>
-              </div>
-            )}
 
+           
             <div className="fixed top-20 left-4 z-50 flex-col space-y-2 md:flex-row md:space-x-4 hidden md:flex">
               <div className="fixed top-20 left-4 z-50 flex flex-col space-y-2 md:space-y-0 md:space-x-4 md:flex-row">
                 {currentPath !== '/' && !['/contact', '/login', '/register', '/dashboard'].includes(currentPath) && (
@@ -144,7 +147,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/beginner-roadmap" element={<BeginnerRoadmap />} />
+              <Route path="/kids-7-17" element={<BeginnerRoadmap />} />
             </Routes>
           </main>
 
