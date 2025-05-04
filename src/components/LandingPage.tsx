@@ -10,7 +10,7 @@ interface LandingPageProps {
   onNext: (choice: string) => void;
 }
 const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
- 
+ console.log(onNext)
   const navigate = useNavigate();
   const [showOptions, setShowOptions] = useState(false);
   // const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });

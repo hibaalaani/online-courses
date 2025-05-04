@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface CTAProps {
   setShowOptions: (show: boolean) => void; // Expecting a prop to control option visibility
