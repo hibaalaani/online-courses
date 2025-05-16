@@ -21,6 +21,7 @@ import { UserProvider } from './context/UserContext';
 import Dashboard from './components/Dashboard';
 import BeginnerRoadmap from './components/ChildRoad';
 import FloatingStars from './components/Shared/FloatingStars';
+// import HomePage from './components/Coder';
 
 interface Selection {
   type?: string;
@@ -52,7 +53,7 @@ function App() {
       navigate('/build');
     } else if (currentPath.includes('/build')) {
       navigate('/');
-    } else if (currentPath.includes('/beginner-roadmap')) {
+    } else if (currentPath.includes('/kids')) {
       navigate('/');
     }
   };
@@ -87,7 +88,7 @@ function App() {
     </div>
   </div>
 )}
-          <main className="relative flex-grow z-10 bg-gradient-to-b from-indigo-900 to-purple-900 text-indigo-600">
+          <main className="relative flex-grow z-10 bg-gradient-to-b from-gray-900 to-indigo-900 text-indigo-600">
           <div className="absolute inset-0 -z-10 overflow-hidden">
     <FloatingStars />
   </div>
@@ -147,11 +148,15 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/kids-7-17" element={<BeginnerRoadmap />} />
+              <Route path="/kids" element={<BeginnerRoadmap />} />
             </Routes>
           </main>
 
           <div className="mt-auto z-10 relative">
+
+
+{/* <HomePage/> */}
+
             <Footer />
           </div>
         </div>

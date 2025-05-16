@@ -35,6 +35,7 @@ console.log(user)
           <h2 className="text-2xl font-semibold text-indigo-600">Your Profile</h2>
           <p className="text-gray-700 mt-2"><b>Email: </b> {user?.email || 'Not available'}</p>
           <p className="text-gray-700"><b>Name: </b> {user?.username || 'Guest'}</p>
+          <p className="text-gray-700"><b>Name: </b> {user?.child_name || 'Guest'}</p>
           <p className="text-gray-700"><b>Registration Date: </b> {registrationDate}</p>
         </div>
 

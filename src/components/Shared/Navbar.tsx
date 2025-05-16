@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 shadow-lg fixed top-0 w-full z-50"
+      className="bg-gradient-to-r from-gray-900 via-indigo-500 to-black-500 shadow-lg fixed top-0 w-full z-50"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 70 }}
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
-          {['/', '/learn', '/build', '/contact', '/kids-7-17'].map((path) => (
+          {['/', '/learn', '/build', '/contact', '/kids'].map((path) => (
             <Link
               key={path}
               to={path}

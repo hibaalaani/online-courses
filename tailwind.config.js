@@ -28,6 +28,7 @@ export default {
         spinSlow: 'spin 20s linear infinite',
         flicker: 'flicker 2s infinite',
         wiggle: 'wiggle 3s ease-in-out infinite',
+        slide: 'slide 30s linear infinite'
 
        },
       keyframes: {
@@ -74,9 +75,9 @@ export default {
         starsMove: {
           // '0%': {opacity: 0.2 },
           // '100%': {opacity: 0.5},
-          '0%, 100%': { opacity: 0.2 },
-          '50%': { opacity: 0.6 },
-          '80%': { opacity: 0.75 },
+          '0%, 100%': { opacity: 0.1 },
+          '50%': { opacity: 0.5 },
+          '80%': { opacity: 0.65 },
         },
         flicker: {
           '0%, 100%': { opacity: 1 },
@@ -87,6 +88,10 @@ export default {
           '0%, 100%': { transform: 'rotate(-1deg)' },
           '50%': { transform: 'rotate(1deg)' },
         },
+        slide: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-66.666%)' }
+        }
       },
     },
   },
