@@ -7,6 +7,7 @@ import {ProcessSection} from "./Shared/ProcessSection";
 import CTA from "./CTA";
 import TechShowcase from "./TechShowcase";
 import ScrollingTechShowcase from "./ScrollingTechShowcase";
+import LearningTrack from "./Test";
 
 interface LandingPageProps {
   onNext: (choice: string) => void;
@@ -88,7 +89,7 @@ const LandingPage: React.FC<LandingPageProps> = ({onNext}) => {
     {/* 👇 Actual image */}
     <img
       // src="four-kids-using-laptop-electronic-parts-build-robot.jpg" 
-      src="alis2.png"
+      src="alis3.png"
       alt="Kids learning programming"
       className="w-full h-full object-cover rounded-2xl"
     />
@@ -194,7 +195,7 @@ const LandingPage: React.FC<LandingPageProps> = ({onNext}) => {
         <PricingSection />
 
         <ScrollingTechShowcase/>
-        
+        {/* <LearningTrack/> */}
         <CTA setShowOptions={setShowOptions} />
       </div>  </div>
     </div>
