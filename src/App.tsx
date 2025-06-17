@@ -30,7 +30,7 @@ import FloatingStars from "./components/Shared/FloatingStars";
 import LearningPathsOverview from "./components/LearningPathsOverview";
 // import Ages7_10Curriculum from './components/Curriculum/Ages7_10Curriculum';
 import CurriculumDetailPage from "./components/Curriculum/CurriculumDetailPage";
-import MatrixBackground from "./components/Shared/MatrixBackground";
+// import MatrixBackground from "./components/Shared/MatrixBackground";
 
 // import HomePage from './components/Coder';
 
@@ -40,13 +40,13 @@ interface Selection {
 }
 
 function App() {
-  const [selection, setSelection] = useState<Selection>({});
+  const [, setSelection] = useState<Selection>({});
   const [modalContent, setModalContent] = useState<React.ReactNode | null>(
     null
   );
   const navigate = useNavigate();
-  const location = useLocation();
-  const currentPath = location.pathname;
+  // const location = useLocation();
+  // const currentPath = location.pathname;
 
   // const resetSelection = () => {
   //   setSelection({});

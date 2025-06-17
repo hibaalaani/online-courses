@@ -1,4 +1,3 @@
-import React from 'react';
 
 const LearningTrack = () => {
   const levels = [
@@ -63,7 +62,7 @@ const LearningTrack = () => {
       <h2 className="text-center text-3xl font-bold mb-12">Programming Pathway for Kids</h2>
 
       <div className="flex justify-center gap-4 mb-10">
-        {levels.map((track, i) => (
+        {levels.map((track) => (
           <button
             key={track.level}
             className={`px-5 py-2 rounded-full border-2 text-sm font-bold transition duration-200 ${
@@ -83,7 +82,7 @@ const LearningTrack = () => {
             <div className="absolute top-24 left-0 w-full h-[2px] bg-orange-300 z-0" />
 
             <div className="relative z-10 flex justify-center gap-8">
-              {track.courses.map((course, idx) => (
+              {track.courses.map((course) => (
                 <div
                   key={course.title}
                   className="bg-gradient-to-b from-orange-400 to-orange-600 text-white rounded-xl w-48 p-4 text-center relative shadow-md"

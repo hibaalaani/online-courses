@@ -1,6 +1,5 @@
 // src/components/Shared/WhyChooseUsSection.tsx
 import { useInView } from 'react-intersection-observer';
-import React from 'react'; // Added import for React
 
 export const WhyChooseUsSection = () => { // Renamed from VisionSection
   const cards = [
