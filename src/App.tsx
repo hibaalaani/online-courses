@@ -4,7 +4,6 @@ import {
   Routes,
   Route,
   useNavigate,
-  useLocation,
 } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 // import LearnOverview from "./components/Learn/LearnOverview";
