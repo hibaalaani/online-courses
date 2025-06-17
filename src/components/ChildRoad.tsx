@@ -1,60 +1,52 @@
 import { useState } from "react";
-import BookingPage from "./Shared/BookingPage";
-import { useUser } from "../context/UserContext";
+import BookingPage from "./Shared/BookingPage"; // Ensure this path is correct
+import { useUser } from "../context/UserContext"; // Ensure this path is correct
 import { motion } from 'framer-motion';
 
-// Learning roadmap for kids (ages 9-13)
-const beginnerLearningPath = [
+// Learning roadmap for kids (ages 7-18) - This is a *sample* and will need to be refined for different age groups
+const learningPath = [
   {
     step: 1,
-    title: "Start with Scratch",
-    description: "Learn block-based coding to build simple animations and games.",
-    tags: ["🧩 Scratch", "🎨 Animation", "🧠 Logic"]
+    title: "Ages 7-9: Dive into Scratch",
+    description: "Start with visual block-based coding to build interactive stories, animations, and games, developing fundamental logic and problem-solving skills.",
+    tags: ["🧩 Scratch", "🎨 Animation", "🧠 Logic", "🎮 Games"]
   },
   {
     step: 2,
-    title: "Continue with Code Combat",
-    description: "Use game-based learning to build Python logic with block-style code.",
-    tags: ["🕹️ CodeCombat", "🐍 Python Basics", "🧩 Game Logic"]
+    title: "Ages 10-13: CodeCombat & Python Fundamentals",
+    description: "Transition from blocks to text-based coding through engaging game-based challenges, building a strong foundation in Python syntax and concepts.",
+    tags: ["🕹️ CodeCombat", "🐍 Python Basics", "🧩 Game Logic", "📚 Syntax"]
   },
   {
     step: 3,
-    title: "Introduction to Python",
-    description: "Understand basic programming concepts with Python.",
-    tags: ["🐍 Python", "📦 Variables", "🔁 Loops"]
+    title: "Ages 14-17: Python Projects & Web Basics",
+    description: "Apply Python to create mini-applications, automation scripts, and delve into the essentials of web development with HTML and CSS to build first web pages.",
+    tags: ["🐍 Python", "🎮 Projects", "🌐 HTML", "🎨 CSS", "⚙️ Automation"]
   },
   {
     step: 4,
-    title: "Python Mini Projects",
-    description: "Create small games and automation scripts.",
-    tags: ["🐍 Python", "🎮 Games", "⚙️ Automation"]
+    title: "Ages :(online) Advanced Python & Web Dev",
+    description: "Explore advanced Python topics, JavaScript for interactivity, and potentially frameworks for web development. Focus on building more complex, real-world applications.",
+    tags: ["🐍 Advanced Python", "✨ JavaScript", "🖥️ Web Development", "🛠️ Frameworks"]
   },
-  {
-    step: 5,
-    title: "Intro to Web Development",
-    description: "Learn HTML & CSS to create simple web pages.",
-    tags: ["🌐 HTML", "🎨 CSS", "🖥️ Web Basics"]
-  },
-  {
-    step: 6,
-    title: "Build a Small Website",
-    description: "Use HTML, CSS, and JavaScript to make an interactive site.",
-    tags: ["🌐 HTML", "🎨 CSS", "✨ JavaScript"]
-  },
+  // You can add more steps or refine these as needed for your full curriculum
 ];
 
-function BeginnerRoadmap() {
+function BeginnerRoadmap() { // Consider renaming this component to "FreeTrialPage" or "LearningPathsPage"
   const [bookingSuccess, setBookingSuccess] = useState(false);
-  const { user } = useUser();
+  const { user } = useUser(); // Ensure user context is set up correctly for this to work
 
   return (
-    <div className="p-6 sm:p-10 md:p-20 max-w-5xl mx-auto mt-10">
+    <div className="p-6 sm:p-10 md:p-20 max-w-5xl mx-auto mt-10 ">
       <h2 className="text-3xl font-bold text-center mb-10 text-indigo-300">
-        Beginner Learning Roadmap 🎓
+        Our Age-Specific Learning Paths 🎓
       </h2>
+      <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
+        At Bug to Byte, we tailor our curriculum to match the learning style and developmental stage of every student, from curious 7-year-olds to ambitious 18-year-olds.
+      </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {beginnerLearningPath.map((stage, index) => {
+        {learningPath.map((stage, index) => {
           const fromDirection = index % 2 === 0 ? "-100%" : "100%";
 
           return (
@@ -64,7 +56,7 @@ function BeginnerRoadmap() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ type: "spring", stiffness: 80, damping: 20 }}
-              className="p-6 bg-white rounded-2xl shadow-xl border border-indigo-200 text-center sm:text-left"
+              className="p-6 bg-white rounded-2xl shadow-xl border border-indigo-200 text-center sm:text-left text-gray-800" // Added text-gray-800 for readability on white background
             >
               <h3 className="text-xl font-bold text-indigo-600 mb-2">
                 {stage.step}. {stage.title}
@@ -86,25 +78,27 @@ function BeginnerRoadmap() {
         })}
       </div>
 
+      {/* Free Trial Booking Section */}
       {!bookingSuccess ? (
-        <div className="mt-16 p-6 bg-white shadow-md rounded-2xl text-center">
+        <div className="mt-16 p-6 bg-white shadow-md rounded-2xl text-center text-gray-800"> {/* Added text-gray-800 */}
           <h2 className="text-2xl font-bold text-indigo-600 mb-2">
-            Book a Free Trial Session 🎉
+            Ready to Start? Book Your FREE Trial Session! 🎉
           </h2>
           <p className="text-gray-600 mb-4">
-            If it's your first time, book a free session for your child!
+            Experience the Bug to Byte difference with a free, personalized coding lesson for your child. Pick a one hour that works for you below!
           </p>
           <BookingPage
             onBookingConfirmed={() => setBookingSuccess(true)}
             user={{
-              name: user.username,
-              email: user.email,
+              name: user?.username || null, // Ensure safety with optional chaining and null
+              email: user?.email || null, // Ensure safety with optional chaining and null
             }}
           />
         </div>
       ) : (
         <div className="text-center p-4 text-green-600 font-semibold mt-6">
-          ✅ Booking Confirmed! We will contact you at <strong>{user.email}</strong> for session details.
+          ✅ Booking Confirmed! We will contact you at{" "}
+          <strong>{user?.email || "your provided email"}</strong> for session details.
         </div>
       )}
     </div>

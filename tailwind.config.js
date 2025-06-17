@@ -28,13 +28,15 @@ export default {
         spinSlow: 'spin 20s linear infinite',
         flicker: 'flicker 2s infinite',
         wiggle: 'wiggle 3s ease-in-out infinite',
-
-       },
+        slide: 'slide 30s linear infinite',
+        // ADD THIS LINE for the blob animation
+        blob: 'blob 7s infinite cubic-bezier(0.42, 0, 0.58, 1)', // Adjust duration and easing as needed
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
-        }, 
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
@@ -72,11 +74,9 @@ export default {
           '100%': { transform: 'translateX(-75%)' },
         },
         starsMove: {
-          // '0%': {opacity: 0.2 },
-          // '100%': {opacity: 0.5},
-          '0%, 100%': { opacity: 0.2 },
-          '50%': { opacity: 0.6 },
-          '80%': { opacity: 0.75 },
+          '0%, 100%': { opacity: 0.1 },
+          '50%': { opacity: 0.5 },
+          '80%': { opacity: 0.65 },
         },
         flicker: {
           '0%, 100%': { opacity: 1 },
@@ -87,9 +87,43 @@ export default {
           '0%, 100%': { transform: 'rotate(-1deg)' },
           '50%': { transform: 'rotate(1deg)' },
         },
+        slide: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-66.666%)' }
+        },
+        // ADD THIS KEYFRAME for the blob animation
+        blob: {
+            "0%": {
+                transform: "translate(0px, 0px) scale(1)",
+            },
+            "33%": {
+                transform: "translate(30px, -50px) scale(1.1)",
+            },
+            "66%": {
+                transform: "translate(-20px, 20px) scale(0.9)",
+            },
+            "100%": {
+                transform: "translate(0px, 0px) scale(1)",
+            },
+        },
       },
+      // ADD THIS FOR ANIMATION DELAYS
+      // This allows you to use classes like 'animation-delay-200ms', 'animation-delay-2s', etc.
+      transitionDelay: { // Tailwind's transitionDelay is often extended for animation-delay
+        '0': '0s',
+        '75': '75ms',
+        '100': '100ms',
+        '150': '150ms',
+        '200': '200ms',
+        '300': '300ms',
+        '500': '500ms',
+        '700': '700ms',
+        '1000': '1000ms',
+        '1500': '1500ms',
+        '2000': '2000ms', // Add the specific 2000ms delay
+        // You can add more custom delays as needed
+      }
     },
   },
   plugins: [],
 }
-

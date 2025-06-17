@@ -8,6 +8,7 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [childName, setChildName] = useState("");
 
   const [error, setError] = useState<string | null>(null);
   const [usernameAvailable, setUsernameAvailable] = useState<boolean | null>(
@@ -71,11 +72,12 @@ const Register: React.FC = () => {
           username,
           email,
           password,
+          child_name: childName 
         }
       );
       setError(null);
       setSuccessMessage("Registration successful! Redirecting to login...");
-
+      setChildName("");
       setUsername("");
       setEmail("");
       setPassword("");
@@ -136,6 +138,13 @@ const Register: React.FC = () => {
           ) : (
             usernameAvailable === false && <p>Username is already taken.</p>
           )}
+          <input
+  type="text"
+  placeholder="Child's Name (optional)"
+  className="w-full p-3 mb-4 border rounded"
+  value={childName}
+  onChange={(e) => setChildName(e.target.value)}
+/>
           <input
             type="email"
             placeholder="Email"
