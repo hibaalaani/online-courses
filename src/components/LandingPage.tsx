@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PricingSection from "./PricingSection";
 // Updated import: Renamed from VisionSection
