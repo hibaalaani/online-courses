@@ -6,19 +6,19 @@ const techItems = [
   {
     id: 'python',
     title: 'Kids Learn Python 🐍',
-    image: 'close-up-kid.jpg',
+    image: 'close-up-kid.webp',
     description: 'Through playful projects and mini-games, kids explore Python basics while having fun and boosting logic.'
   },
   {
     id: 'javascript',
     title: 'Kids Build with JavaScript ⚡',
-    image: 'children-having-technology-education-class.jpg',
+    image: 'children-having-technology-education-class.webp',
     description: 'JavaScript lets kids animate the web, create interactive apps, and see their code come to life on screen.'
   },
   {
     id: 'scratch',
     title: 'Scratch Coding Adventures 🧩',
-    image: 'portrait-little-girl.jpg',
+    image: 'portrait-little-girl.webp',
     description: 'Using drag-and-drop coding, children build games and stories with Scratch while learning programming logic.'
   }
 ];
@@ -82,6 +82,7 @@ const ScrollingTechShowcase: React.FC = () => {
               <img
                 src={tech.image}
                 alt={tech.title}
+                loading="lazy"
                 className="w-full h-[200px] object-cover rounded-xl mb-4"
               />
               <h3 className="text-xl font-semibold text-slate-800 mb-2">{tech.title}</h3>

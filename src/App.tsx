@@ -29,6 +29,7 @@ import FloatingStars from "./components/Shared/FloatingStars";
 import LearningPathsOverview from "./components/LearningPathsOverview";
 // import Ages7_10Curriculum from './components/Curriculum/Ages7_10Curriculum';
 import CurriculumDetailPage from "./components/Curriculum/CurriculumDetailPage";
+import BookingForm from "./components/BookingForm";
 // import MatrixBackground from "./components/Shared/MatrixBackground";
 
 // import HomePage from './components/Coder';
@@ -246,7 +247,8 @@ function App() {
                 path="/build"
                 element={<LearningPathsOverview pageType="build" />}
               /> */}
-
+  {/* NEW ROUTE FOR BOOKING FORM */}
+  <Route path="/booking" element={<BookingForm />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/contact" element={<ContactPage />} />
