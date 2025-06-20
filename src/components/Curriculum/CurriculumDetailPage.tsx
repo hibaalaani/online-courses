@@ -11,6 +11,7 @@ const CurriculumDetailPage: React.FC = () => {
   // Find the curriculum data based on the ageGroup parameter
   const curriculum: CurriculumContent | undefined = ageGroup ? allCurriculumPaths[ageGroup] : undefined;
 
+
   // If no curriculum found, redirect or show an error
   if (!curriculum) {
     return (
@@ -29,33 +30,43 @@ const CurriculumDetailPage: React.FC = () => {
     );
   }
 
+
+
+  // Handle Enroll Now click
+  const handleEnrollNow = () => {
+    // Navigate to the booking page and pass the curriculum ID via state
+    navigate('/booking', { state: { selectedCurriculumId: curriculum.id } });
+  };
+
+
+
   return (
     <div className="relative min-h-screen py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-gray-900 via-indigo-900 to-black-900 text-white overflow-hidden">
       {/* Background dots pattern */}
       <div className="absolute inset-0 z-0 bg-dots-pattern opacity-10" aria-hidden="true"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header Section */}
+        {/* Header Section - Already has good bottom margin mb-16 */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-cyan-400 mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4">
             {curriculum.title}
           </h1>
-          <p className="text-lg sm:text-xl text-indigo-200 mb-6">
+          <p className="text-lg sm:text-xl text-white mb-6">
             {curriculum.subtitle}
           </p>
-          <p className="text-md sm:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-md sm:text-lg text-white max-w-4xl mx-auto leading-relaxed">
             {curriculum.description}
           </p>
         </motion.div>
 
-        {/* Learning Goals */}
-        <div className="mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-indigo-300 text-center mb-8">
+        {/* Learning Goals Section - INCREASED top margin here to ensure space */}
+        <div className="mt-28 sm:mt-32 mb-16"> {/* Increased from mt-20 sm:mt-24 */}
+          <h2 className="text-3xl sm:text-4xl font-bold text-cyan-300 text-center mb-8">
             What You Will Learn
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,14 +79,14 @@ const CurriculumDetailPage: React.FC = () => {
                 className="bg-gray-800 p-6 rounded-lg shadow-lg flex items-start space-x-4 border border-gray-700 hover:border-indigo-500 transition-colors"
               >
                 <span className="text-2xl text-green-400">✅</span>
-                <p className="text-lg text-gray-200">{goal}</p>
+                <p className="text-lg text-white">{goal}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Key Topics */}
-        <div className="mb-16">
+        {/* Key Topics Section - INCREASED top margin here */}
+        <div className="mt-28 sm:mt-32 mb-16"> {/* Increased from mt-20 sm:mt-24 */}
           <h2 className="text-3xl sm:text-4xl font-bold text-cyan-300 text-center mb-8">
             Key Topics Covered
           </h2>
@@ -95,9 +106,9 @@ const CurriculumDetailPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Exciting Projects */}
-        <div className="mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-purple-300 text-center mb-8">
+        {/* Exciting Projects Section - INCREASED top margin here */}
+        <div className="mt-28 sm:mt-32 mb-16"> {/* Increased from mt-20 sm:mt-24 */}
+          <h2 className="text-3xl sm:text-4xl font-bold text-cyan-300 text-center mb-8">
             Exciting Projects You'll Build
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -123,15 +134,15 @@ const CurriculumDetailPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action Section - INCREASED top margin here */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-16"
+          className="text-center mt-28 sm:mt-32" // Adjusted mt- from mt-20 sm:mt-24
         >
           <p className="text-xl sm:text-2xl text-gray-200 mb-8">{curriculum.callToAction}</p>
-          <button className="px-10 py-5 bg-gradient-to-r from-green-400 to-teal-500 text-white text-xl rounded-full font-bold hover:from-teal-500 hover:to-green-400 transition-all shadow-xl animate-bounce-slow">
+          <button onClick={handleEnrollNow} className="px-10 py-5 bg-gradient-to-r from-green-400 to-teal-500 text-white text-xl rounded-full font-bold hover:from-teal-500 hover:to-green-400 transition-all shadow-xl animate-bounce-slow">
             Enroll Now!
           </button>
         </motion.div>

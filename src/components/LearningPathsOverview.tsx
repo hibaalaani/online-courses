@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import { Helmet } from 'react-helmet-async';
 interface PathCardData {
   ageRange: string;
   title: string;
@@ -112,8 +112,14 @@ const LearningPathsOverview: React.FC<LearningPathsOverviewProps> = ({ pageType 
   const buttonText = pageType === 'curriculum' ? 'View Curriculum' : 'View Projects';
 
   return (
+    <>
+<Helmet>
+  <title>Bug to Byte – Learn to Code</title>
+  <meta name="description" content="Interactive programming lessons for kids and adults." />
+</Helmet>
+
     <div className="relative min-h-screen flex flex-col items-center justify-center py-24 px-4 sm:px-8 lg:px-16 bg-dots-pattern">
-      {/* Background dots pattern (if bg-dots-pattern is defined in your CSS/Tailwind config) */}
+
       <div className="absolute inset-0 z-0 bg-dots-pattern opacity-20" aria-hidden="true"></div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto">
@@ -161,6 +167,7 @@ const LearningPathsOverview: React.FC<LearningPathsOverviewProps> = ({ pageType 
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -37,9 +37,9 @@ export interface CurriculumContent {
         { name: "Game Design Basics", icon: "🕹️" }
       ],
       projects: [
-        { name: "My First Animated Story", image: "/projects/story_app.jpg" }, // Placeholder
-        { name: "Catch the Star Game", image: "/projects/star_app.jpg" }, // Placeholder
-        { name: "Musical Instrument Creator", image: "/projects/music_app.jpg" } // Placeholder
+        { name: "My First Animated Story", image: "/projects/story_app.webp" }, // Placeholder
+        { name: "Catch the Star Game", image: "/projects/star_app.webp" }, // Placeholder
+        { name: "Musical Instrument Creator", image: "/projects/music_app.webp" } // Placeholder
       ],
       callToAction: "Ready to spark your child's coding adventure? Sign up for a free trial today!"
     },
@@ -67,9 +67,9 @@ export interface CurriculumContent {
         { name: "Introduction to Data Structures (Lists, Dictionaries)", icon: "🗄️" }
       ],
       projects: [
-        { name: "Interactive 'Choose Your Own Adventure' Story", image: "/projects/story_game_app.jpg" }, // Placeholder
-        { name: "Personalized Portfolio Website", image: "/projects/portf_app.jpg" }, // Placeholder
-        { name: "Number Guessing Game (Python)", image: "/projects/guess_app.jpg" } // Placeholder
+        { name: "Interactive 'Choose Your Own Adventure' Story", image: "/projects/story_game_app.webp" }, // Placeholder
+        { name: "Personalized Portfolio Website", image: "/projects/portf_app.webp" }, // Placeholder
+        { name: "Number Guessing Game (Python)", image: "/projects/guess_app.webp" } // Placeholder
       ],
       callToAction: "Is your child ready to level up their coding skills? Explore our intermediate programs!"
     },
@@ -97,9 +97,9 @@ export interface CurriculumContent {
         { name: "Project Management Methodologies", icon: "📊" }
       ],
       projects: [
-        { name: "Full-Stack To-Do Application (React + Node.js)", image: "/projects/basic_todo_app.jpg" }, // Placeholder
-        { name: "Scraper Intro", image: "/projects/scrape_app.jpg" }, // Placeholder
-        { name: "Simple AI Chatbot or Image Classifier", image: "/projects/chat_app.jpg" } // Placeholder
+        { name: "Full-Stack To-Do Application (React + Node.js)", image: "/projects/basic_todo_app.webp" }, // Placeholder
+        { name: "Scraper Intro", image: "/projects/scrape_app.webp" }, // Placeholder
+        { name: "Simple AI Chatbot or Image Classifier", image: "/projects/chat_app.webp" } // Placeholder
       ],
       callToAction: "Ready to build your tech future? Enroll in our advanced programs and make an impact!"
     },
@@ -127,9 +127,9 @@ export interface CurriculumContent {
         { name: "Portfolio Building Strategies", icon: "📈" }
       ],
       projects: [
-        { name: "Responsive Business Website", image: "/projects/proweb_app.jpg" }, // Placeholder
-        { name: "Simple Calculator App (JavaScript)", image: "/projects/calc_app.jpg" }, // Placeholder
-        { name: "Data Analysis Script (Python)", image: "/projects/task_app.jpg" } // Placeholder
+        { name: "Responsive Business Website", image: "/projects/proweb_app.webp" }, // Placeholder
+        { name: "Simple Calculator App (JavaScript)", image: "/projects/calc_app.webp" }, // Placeholder
+        { name: "Data Analysis Script (Python)", image: "/projects/task_app.webp" } // Placeholder
       ],
       callToAction: "Ready to start your new career in tech? Book a consultation to find your perfect path!"
     }

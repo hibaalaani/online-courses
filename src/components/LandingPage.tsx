@@ -12,7 +12,7 @@ import ScrollingTechShowcase from "./ScrollingTechShowcase";
 import AboutUsSection from "./Shared/AboutUsSection"; // Corrected import path for your AboutUsSection
 import TestimonialsSection from "./Shared/TestimonialsSection"; // Example import path
 import FAQSection from "./Shared/FAQSection"; // Example import path
-
+import { Helmet } from 'react-helmet-async';
 interface LandingPageProps {
   onNext: (choice: string) => void;
 }
@@ -30,6 +30,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
   };
 
   return (
+<>
+    <Helmet>
+    <title>Bug to Byte | Fun Programming for Kids and Teens</title>
+    <meta name="description" content="Join Bug to Byte to learn Python, Scratch, and JavaScript through real projects! Designed for kids, teens, and curious adults." />
+    <link rel="canonical" href="https://online-courses-yyn0.onrender.com/" />
+  </Helmet>
+
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 via-indigo-900 to-black-900 animate-backgroundShift text-white ">
       {/* 🎨 Floating lights */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
@@ -90,7 +97,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
               <div className="relative w-full max-w-sm h-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 {/* 👇 Actual image */}
                 <img
-                  src="alis3.png" // Ensure this path is correct relative to your public folder or build
+                  src="alis3.webp" // Ensure this path is correct relative to your public folder or build
                   alt="Kids learning programming"
                   className="w-full h-full object-cover rounded-2xl"
                 />
@@ -159,6 +166,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
         <CTA setShowOptions={() => {}} /> {/* Pass a no-op function for setShowOptions as it's no longer used within CTA context here */}
       </div>
     </div>
+    </>
   );
 };
 
