@@ -98,7 +98,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
                 {/* 👇 Actual image */}
                 <img
                   src="alis3.webp" // Ensure this path is correct relative to your public folder or build
-                  alt="Kids learning programming"
+                  loading="lazy" alt="Coding kids"
+             
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>

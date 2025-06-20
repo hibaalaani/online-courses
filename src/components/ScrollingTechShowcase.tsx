@@ -82,7 +82,8 @@ const ScrollingTechShowcase: React.FC = () => {
               <img
                 src={tech.image}
                 alt={tech.title}
-                loading="lazy"
+                loading="lazy" 
+
                 className="w-full h-[200px] object-cover rounded-xl mb-4"
               />
               <h3 className="text-xl font-semibold text-slate-800 mb-2">{tech.title}</h3>
