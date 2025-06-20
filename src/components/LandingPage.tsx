@@ -4,7 +4,6 @@ import PricingSection from "./PricingSection";
 import { WhyChooseUsSection } from "./Shared/WhyChooseUsSection";
 import { ProcessSection } from "./Shared/ProcessSection";
 import CTA from "./CTA"; // This CTA is for the section *below* the hero
-import TechShowcase from "./TechShowcase";
 import ScrollingTechShowcase from "./ScrollingTechShowcase";
 // import LearningTrack from "./Test"; // Unused import
 
@@ -13,6 +12,10 @@ import AboutUsSection from "./Shared/AboutUsSection"; // Corrected import path f
 import TestimonialsSection from "./Shared/TestimonialsSection"; // Example import path
 import FAQSection from "./Shared/FAQSection"; // Example import path
 import { Helmet } from 'react-helmet-async';
+import React, { Suspense, lazy } from "react";
+const TechShowcase = lazy(() => import("./TechShowcase"));
+
+
 interface LandingPageProps {
   onNext: (choice: string) => void;
 }
@@ -143,7 +146,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
         {/* Tech Showcase */}
         <div className="pt-20 lg:pt-32"> 
 
-        <TechShowcase />
+        <Suspense fallback={<div className="text-white text-center py-10">Loading tech showcase...</div>}>
+  <TechShowcase />
+</Suspense>
 </div>
 
 <div className="pt-20 lg:pt-32"> 
@@ -154,7 +159,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
         <PricingSection />
 
         {/* Scrolling Tech Showcase */}
-        <ScrollingTechShowcase />
+        <Suspense fallback={<div className="text-white text-center py-10">Loading tech showcase...</div>}>
+ <ScrollingTechShowcase />
+</Suspense>
+     
         <div className="pt-20 lg:pt-32"> 
         {/* Testimonials Section Placeholder */}
         <TestimonialsSection />
