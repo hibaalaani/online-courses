@@ -30,7 +30,9 @@ export default {
         wiggle: 'wiggle 3s ease-in-out infinite',
         slide: 'slide 30s linear infinite',
         // ADD THIS LINE for the blob animation
-        blob: 'blob 7s infinite cubic-bezier(0.42, 0, 0.58, 1)', // Adjust duration and easing as needed
+        blob: 'blob 7s infinite',
+        'bounce-subtle': 'bounce-subtle 2s infinite ease-in-out',
+        'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         fadeIn: {

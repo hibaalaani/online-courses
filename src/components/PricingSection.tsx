@@ -70,7 +70,7 @@ const PricingSection = () => {
                 <p><span className="font-bold text-white">Monthly:</span> {plan.monthly}</p>
                 <p><span className="font-bold text-white">Price/Session:</span> {plan.perSession}</p>
                 <p><span className="font-bold text-white">Price/Hour:</span> {plan.perHour}</p>
-                <p><span className="font-bold text-white">Session Duration:</span> 120 min</p>
+                <p><span className="font-bold text-white">Session Duration:</span> 90 min</p>
               </div>
 
               <div className="mt-8">

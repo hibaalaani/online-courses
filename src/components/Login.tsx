@@ -25,9 +25,7 @@ const Login: React.FC = () => {
       console.log(response.data)
       const {username:name ,child_name, email , joined , access}  = response.data
       localStorage.setItem("token", access);
-    //   localStorage.setItem("username", name);
-    //  localStorage.setItem("email", email);
-    //  localStorage.setItem("joined" , joined)
+   
       setUser({username:name , email:email , joined, child_name:child_name})
 
 

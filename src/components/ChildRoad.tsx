@@ -1,9 +1,8 @@
-import { useState } from "react";
-import BookingPage from "./Shared/BookingPage"; // Ensure this path is correct
-import { useUser } from "../context/UserContext"; // Ensure this path is correct
-import { motion } from 'framer-motion';
-
-// Learning roadmap for kids (ages 7-18) - This is a *sample* and will need to be refined for different age groups
+import { useState , useRef } from "react";
+import BookingPage from "./Shared/BookingPage"; 
+import { useUser } from "../context/UserContext"; 
+import { motion , useInView } from 'framer-motion';
+import LearningCardChildRoad from "./LearningCardChildRoad";
 const learningPath = [
   {
     step: 1,
@@ -29,10 +28,9 @@ const learningPath = [
     description: "Explore advanced Python topics, JavaScript for interactivity, and potentially frameworks for web development. Focus on building more complex, real-world applications.",
     tags: ["🐍 Advanced Python", "✨ JavaScript", "🖥️ Web Development", "🛠️ Frameworks"]
   },
-  // You can add more steps or refine these as needed for your full curriculum
 ];
 
-function BeginnerRoadmap() { // Consider renaming this component to "FreeTrialPage" or "LearningPathsPage"
+function BeginnerRoadmap() { 
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const { user } = useUser(); // Ensure user context is set up correctly for this to work
 
@@ -45,38 +43,12 @@ function BeginnerRoadmap() { // Consider renaming this component to "FreeTrialPa
         At Bug to Byte, we tailor our curriculum to match the learning style and developmental stage of every student, from curious 7-year-olds to ambitious 18-year-olds.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {learningPath.map((stage, index) => {
-          const fromDirection = index % 2 === 0 ? "-100%" : "100%";
-
-          return (
-            <motion.div
-              key={stage.step}
-              initial={{ opacity: 0, x: fromDirection }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ type: "spring", stiffness: 80, damping: 20 }}
-              className="p-6 bg-white rounded-2xl shadow-xl border border-indigo-200 text-center sm:text-left text-gray-800" // Added text-gray-800 for readability on white background
-            >
-              <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                {stage.step}. {stage.title}
-              </h3>
-              <p className="text-gray-700">{stage.description}</p>
-
-              <div className="flex flex-wrap justify-center sm:justify-start mt-4 gap-2">
-                {stage.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
+        {learningPath.map((stage, index) => (
+           <LearningCardChildRoad key={stage.step} stage={stage} index={index} />
+          ))}
+  </div>
+  
 
       {/* Free Trial Booking Section */}
       {!bookingSuccess ? (

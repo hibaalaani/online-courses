@@ -1,16 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import PricingSection from "./PricingSection";
-// Updated import: Renamed from VisionSection
 import { WhyChooseUsSection } from "./Shared/WhyChooseUsSection";
 import { ProcessSection } from "./Shared/ProcessSection";
 import CTA from "./CTA"; // This CTA is for the section *below* the hero
 import ScrollingTechShowcase from "./ScrollingTechShowcase";
-// import LearningTrack from "./Test"; // Unused import
 
-// Import new components (you'll need to create these files)
-import AboutUsSection from "./Shared/AboutUsSection"; // Corrected import path for your AboutUsSection
-import TestimonialsSection from "./Shared/TestimonialsSection"; // Example import path
-import FAQSection from "./Shared/FAQSection"; // Example import path
+import AboutUsSection from "./Shared/AboutUsSection"; 
+import TestimonialsSection from "./Shared/TestimonialsSection"; 
+import FAQSection from "./Shared/FAQSection";
 import { Helmet } from 'react-helmet-async';
 import React, { Suspense, lazy } from "react";
 const TechShowcase = lazy(() => import("./TechShowcase"));
@@ -24,10 +21,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
   console.log(onNext); // Consider removing console.logs for production
   const navigate = useNavigate();
 
-  // The 'showOptions' state is no longer needed as we're directly routing to the free trial
-  // const [showOptions, setShowOptions] = useState(false);
-
-  // Function to navigate to the free trial page (your /kids route)
+  
   const handleFreeTrialNavigate = () => {
     navigate("/kids"); // Assuming /kids is where your free trial booking lives
   };
@@ -95,12 +89,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
           {/* Hero Section - Adjustments for spacing */}
           <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between w-full max-w-6xl py-16 lg:py-24 px-4 sm:px-6 lg:px-12 gap-10 md:gap-14">
             {/* Image Column */}
-            {/* Added mt-8 for vertical spacing from button on small screens */}
+         
             <div className="w-full md:w-1/2 flex justify-center mt-8 lg:mt-0">
               <div className="relative w-full max-w-sm h-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 {/* 👇 Actual image */}
                 <img
-                  src="alis3.webp" // Ensure this path is correct relative to your public folder or build
+                  src="alis3.webp" 
                   loading="lazy" alt="Coding kids"
              
                   className="w-full h-full object-cover rounded-2xl"
@@ -171,8 +165,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNext }) => {
         {/* FAQ Section Placeholder */}
         <FAQSection />
 </div>
-        {/* The existing CTA component (if it's for another general CTA on the page) */}
-        <CTA setShowOptions={() => {}} /> {/* Pass a no-op function for setShowOptions as it's no longer used within CTA context here */}
+       
+        <CTA setShowOptions={() => {}} /> 
       </div>
     </div>
     </>
