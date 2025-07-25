@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
-          {['/', '/curriculum', '/contact', '/kids'].map((path) => (
+          {['/', '/curriculum', '/kids', '/contact'].map((path) => (
             <Link
               key={path}
               to={path}
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-indigo-600 shadow-lg py-4">
           <div className="flex flex-col items-center space-y-4">
-            {['/', '/learn', '/build', '/contact', '/beginner-roadmap'].map((path) => (
+            {['/', '/curriculum', '/kids', '/contact'].map((path) => (
               <Link
                 key={path}
                 to={path}

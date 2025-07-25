@@ -1,66 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const Contact: React.FC = () => {
-//   const [name, setName] = useState('');
-//   const [email, setEmail] = useState('');
-//   const [message, setMessage] = useState('');
-//   const [success, setSuccess] = useState(false);
-
-//   const handleSubmit = async () => {
-//     try {
-//       await axios.post(`${import.meta.env.VITE_API_URL_USER_BASE_URL}/contact/`, {
-//         name,
-//         email,
-//         message,
-//       });
-//       setSuccess(true);
-//     } catch (err) {
-//       alert('Failed to submit your message. Please try again.');
-//     }
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
-//         <div className="max-w-2xl w-full bg-white rounded-lg shadow-md p-6 sm:p-8">
-//       <h2 className="text-2xl font-bold text-center mb-6">Contact Us</h2>
-//       <input
-//         type="text"
-//         placeholder="Name"
-//         className="w-full p-3 mb-4 border rounded"
-//         value={name}
-//         onChange={(e) => setName(e.target.value)}
-//       />
-//       <input
-//         type="email"
-//         placeholder="Email"
-//         className="w-full p-3 mb-4 border rounded"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//       />
-//       <textarea
-//         placeholder="Message"
-//         className="w-full p-3 mb-4 border rounded"
-//         value={message}
-//         onChange={(e) => setMessage(e.target.value)}
-//       />
-//       <button
-//         onClick={handleSubmit}
-//         className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
-//       >
-//         Submit
-//       </button>
-//       {success && <p className="mt-4 text-green-500 text-center">Message sent successfully!</p>}
-//     </div></div>
-//   );
-// };
-
-// export default Contact;
-
-
-
-
-
 import axios from 'axios';
 import React, { useState } from 'react';
 
@@ -95,10 +32,10 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen  flex items-center justify-center px-4">
+    <div className="min-h-screen  flex items-center justify-center px-4 ">
     <form
       onSubmit={handleSubmit}
-      className="bg-white shadow-lg rounded-lg w-full sm:w-3/4 lg:w-1/2 p-6 space-y-6"
+      className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg"
     >
       <h2 className="text-3xl font-bold text-center text-indigo-600">Contact Us</h2>
       <p className="text-center text-gray-600">We're here to help! Fill out the form below, and we’ll get back to you soon.</p>

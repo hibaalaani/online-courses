@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'arial-unicode-ms';
+    src: url('Arial-ItalicMT.eot');
+    src: local('Arial Unicode Italic'), local('Arial-Unicode-ItalicMT'),
+        url('Arial-ItalicMT.eot?#iefix') format('embedded-opentype'),
+        url('Arial-ItalicMT.woff2') format('woff2'),
+        url('Arial-ItalicMT.woff') format('woff'),
+        url('Arial-ItalicMT.ttf') format('truetype'),
+        url('Arial-ItalicMT.svg#Arial-ItalicMT') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'arial-unicode-ms';
+    src: url('Arial-BoldItalicMT.eot');
+    src: local('Arial Unicode Bold Italic'), local('Arial-Unicode-BoldItalicMT'),
+        url('Arial-BoldItalicMT.eot?#iefix') format('embedded-opentype'),
+        url('Arial-BoldItalicMT.woff2') format('woff2'),
+        url('Arial-BoldItalicMT.woff') format('woff'),
+        url('Arial-BoldItalicMT.ttf') format('truetype'),
+        url('Arial-BoldItalicMT.svg#Arial-BoldItalicMT') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'arial-unicode-ms';
+    src: url('Arial-BoldMT.eot');
+    src: local('Arial Unicode Bold'), local('Arial-Unicode-BoldMT'),
+        url('Arial-BoldMT.eot?#iefix') format('embedded-opentype'),
+        url('Arial-BoldMT.woff2') format('woff2'),
+        url('Arial-BoldMT.woff') format('woff'),
+        url('Arial-BoldMT.ttf') format('truetype'),
+        url('Arial-BoldMT.svg#Arial-BoldMT') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'arial-unicode-ms';
+    src: url('ArialMT.eot');
+    src: local('Arial Unicode'), local('Arial-UnicodeMT'),
+        url('ArialMT.eot?#iefix') format('embedded-opentype'),
+        url('ArialMT.woff2') format('woff2'),
+        url('ArialMT.woff') format('woff'),
+        url('ArialMT.ttf') format('truetype'),
+        url('ArialMT.svg#ArialMT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
