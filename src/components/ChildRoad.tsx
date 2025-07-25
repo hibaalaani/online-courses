@@ -1,7 +1,6 @@
-import { useState , useRef } from "react";
+import { useState  } from "react";
 import BookingPage from "./Shared/BookingPage"; 
 import { useUser } from "../context/UserContext"; 
-import { motion , useInView } from 'framer-motion';
 import LearningCardChildRoad from "./LearningCardChildRoad";
 const learningPath = [
   {
