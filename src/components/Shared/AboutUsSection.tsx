@@ -57,7 +57,7 @@ const AboutUsSection: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-center md:space-x-12">
           <div className="w-full max-w-[12rem] h-auto aspect-square rounded-full overflow-hidden bg-gray-700 flex items-center justify-center text-gray-400 text-6xl mb-6 md:mb-0 shadow-xl border-4 border-indigo-500 mx-auto md:mx-0">
               {/* Placeholder for a team photo or avatar */}
-              <img src="/path-to-your-team-photo.jpg" alt="Our Team" className="w-full h-full object-cover" />
+              <img src="/logos/test2.webp" alt="Our Team" className="/logo/w-full h-full object-cover" />
               {/* Or simply: 🧑‍💻 */}
             </div>
             <div className="max-w-2xl text-left md:text-left">
